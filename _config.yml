@@ -1,7 +1,7 @@
 # Site Settings
 
-title: "Bas(e)ic R"
-baseurl: /basic-R-lesson
+title: "RNetlogo"
+baseurl: /rnetlogo-lesson
 email: cyberhelp@sesync.org
 description: ""
 styleurl: https://cdn.rawgit.com/sesync-ci/lesson-stylesheets/1.0.1
@@ -17,19 +17,6 @@ lesson: 2
 slide_sorter:
   - title
   - intro
-  - console
-#  - math
-  - editor
-  - types
-  - dataframes
-#  - load
-#  - plot
-  - parts
-  - functions
-  - stats
-  - flow
-  - conclude
-  - solutions
   
 # Jekyll
 

@@ -4,4 +4,4 @@
 # {{ site.title }}
 {:style="text-transform: none;"}
 
-Lesson {{ site.lesson }} with *Kate Weiss*
+Lesson {{ site.lesson }} with *Kelly Hondula*
