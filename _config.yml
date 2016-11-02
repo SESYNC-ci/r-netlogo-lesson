@@ -1,6 +1,6 @@
 # Site Settings
 
-title: "RNetlogo"
+title: "RNetLogo"
 baseurl: /rnetlogo-lesson
 email: cyberhelp@sesync.org
 description: ""
@@ -17,6 +17,7 @@ lesson: 2
 slide_sorter:
   - title
   - intro
+  - setup
   
 # Jekyll
 
