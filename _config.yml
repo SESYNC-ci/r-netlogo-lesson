@@ -1,7 +1,7 @@
 # Site Settings
 
 title: "RNetLogo"
-baseurl: /rnetlogo-lesson
+baseurl: /r-netlogo-lesson
 email: cyberhelp@sesync.org
 description: ""
 styleurl: https://cdn.rawgit.com/sesync-ci/lesson-stylesheets/1.0.1
