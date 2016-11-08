@@ -1,9 +1,9 @@
 ---
-  ---
+---
   
   plot results
   
-  ```{r}
+```{r}
 # Prepare data for ggplot
 library(ggplot2)
 dd <-rep(55:65, each=20)
