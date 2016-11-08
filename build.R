@@ -4,17 +4,19 @@ require(stringr)
 
 config = yaml.load_file("_config.yml")
 render_markdown(fence_char = "~")
-opts_knit$set(base.url = paste0(config$baseurl, "/"))
+opts_knit$set(
+    root.dir = '.',
+    base.url = '{{ site.baseurl }}/')
 opts_chunk$set(
     comment = NA,
-    fig.path = "../images/",
+    fig.path = "images/",
     block_ial = c("{:.input}", "{:.output}"))
 
 current_chunk = knit_hooks$get("chunk")
 chunk = function(x, options) {
     x <- current_chunk(x, options)
     if (!is.null(options$title)) {
-        x <- gsub("~~~(\n*$)",
+        x <- gsub("~~~(\n*(!\\[.+)?$)",
                   paste0("~~~\n{:.text-document title=\"", options$title, "\"}\\1"),
                   x)
         return(x)
@@ -34,8 +36,6 @@ chunk = function(x, options) {
 }
 knit_hooks$set(chunk = chunk)
 
-setwd("_slides")
-
 for (f in config$slide_sorter) {
-    knit(paste0(f, ".Rmd"))
+    knit(paste0('_slides/', f, ".Rmd"))
 }
