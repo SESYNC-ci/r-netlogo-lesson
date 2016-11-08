@@ -15,4 +15,4 @@ bp <- ggplot(df, aes(x=density, y=percent.burned)) + geom_boxplot()
 bp + ggtitle("Forest Fire Simulation: variation near phase transition")
 ~~~
 
-![plot of chunk unnamed-chunk-1](/rnetlogo-lesson/images/unnamed-chunk-1-1.png)
+![plot of chunk unnamed-chunk-1](/rnetlogo-lesson/../images/unnamed-chunk-1-1.png)

@@ -18,7 +18,7 @@ slide_sorter:
   - title
   - intro
   - setup
-  - headless
+  - modes
   - loadmodel
   - simulation
   - plotresults
