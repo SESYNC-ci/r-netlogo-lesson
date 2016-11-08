@@ -37,5 +37,5 @@ chunk = function(x, options) {
 knit_hooks$set(chunk = chunk)
 
 for (f in config$slide_sorter) {
-    knit(paste0('_slides/', f, ".Rmd"))
+    knit(paste0('_slides/', f, ".Rmd"), paste0('_slides/', f, ".md"))
 }
