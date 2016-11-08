@@ -1,0 +1,8 @@
+---
+---
+  
+```{r}
+NLCommand("ask n-of 20 patches [set pcolor green]")
+```
+
+  

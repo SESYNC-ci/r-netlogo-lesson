@@ -20,9 +20,11 @@ slide_sorter:
   - setup
   - modes
   - loadmodel
-  - simulation
-  - plotresults
-  
+  - commands
+  - command2
+  - report
+  - report2
+
 # Jekyll
 
 markdown: kramdown
