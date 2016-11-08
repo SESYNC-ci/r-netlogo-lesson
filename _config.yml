@@ -18,6 +18,10 @@ slide_sorter:
   - title
   - intro
   - setup
+  - headless
+  - loadmodel
+  - simulation
+  - plotresults
   
 # Jekyll
 
