@@ -30,18 +30,18 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 {:.input}
 ~~~
 [[1]]
-[1] 53
+[1] 48
 
 [[2]]
 [1] 51
 
 [[3]]
-[1] 54
+[1] 50
 
 [[4]]
-[1] 56
+[1] 51
 
 [[5]]
-[1] 56
+[1] 50
 ~~~
 {:.output}
