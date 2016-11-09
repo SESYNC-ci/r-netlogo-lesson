@@ -24,6 +24,9 @@ slide_sorter:
   - command2
   - report
   - report2
+  - reportwhile
+  - simulation
+  - plotresults
 
 # Jekyll
 

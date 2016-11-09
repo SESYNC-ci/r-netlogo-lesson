@@ -6,9 +6,9 @@ The default output of `NLDoReport()` is an R list, or you can specify that the o
 ```{r}
 sheep_count <- NLDoReport(iterations = 100, 
                           command = "go", 
-                          reporter = c("count sheep", "count wolves"),
+                          reporter = c("ticks", "count sheep", "count wolves"),
                           as.data.frame = TRUE,
-                          df.col.names = c("sheep", "wolves"))
+                          df.col.names = c("tick", "sheep", "wolves"))
 head(sheep_count)
 ```
 

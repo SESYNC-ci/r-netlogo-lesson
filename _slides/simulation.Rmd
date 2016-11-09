@@ -1,22 +1,27 @@
 ---
 ---
-  
+
+Define a function to run a simulation with a given set of initial values. 
+
 ```{r, cache=TRUE}
 # functions to control the simulation
-sim <- function(density) {
-  NLCommand("set density ", density, "setup")
-  NLDoCommandWhile("any? turtles", "go");
-  ret <- NLReport("(burned-trees / initial-trees) * 100")
+sim <- function(init_sheep){
+  NLCommand("set initial-number-sheep ", init_sheep, "setup")
+  NLDoCommandWhile("any? wolves", "go");
+  ret <- NLReport("count sheep")
   return(ret)
 }
 
 
-rep.sim <- function(density, rep)         # run the simulation
-  lapply(density, function(dens) replicate(rep, sim(dens)))
-
-
-d <- seq(55, 65, 1)                  # vector of densities to examine
-res <- rep.sim(d, 20)                # Run the simulation
+# s <- seq(10, 100, 10)
+# pb <- sapply(s, function(init_sheep) sim(s))
+# 
+# rep.sim <- function(init_sheep, rep)         # run the simulation
+#   lapply(density, function(dens) replicate(rep, sim(dens)))
+# 
+# 
+# d <- seq(55, 65, 1)                  # vector of densities to examine
+# res <- rep.sim(d, 20)                # Run the simulation
 
 
 ```

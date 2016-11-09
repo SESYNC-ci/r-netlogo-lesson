@@ -30,33 +30,18 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 {:.input}
 ~~~
 [[1]]
-[1] 52
+[1] 53
 
 [[2]]
-[1] 54
+[1] 51
 
 [[3]]
-[1] 53
+[1] 54
 
 [[4]]
-[1] 53
+[1] 56
 
 [[5]]
-[1] 53
+[1] 56
 ~~~
 {:.output}
-
-The default output of `NLDoReport()` is an R list, or you can specify that the output should be a data frame with columns named in the `df.col.names` argument. You can use vector of strings to get the results of multiple NetLogo reporters. 
-
-
-~~~r
-sheep_count <- NLDoReport(iterations = 100, 
-                          command = "go", 
-                          reporter = c("count sheep", "count wolves"),
-                          as.data.frame = TRUE,
-                          df.col.names = c("sheep", "wolves"))
-~~~
-{:.input}
-
-
-
