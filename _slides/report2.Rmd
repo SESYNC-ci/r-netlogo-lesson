@@ -4,6 +4,7 @@
 The default output of `NLDoReport()` is an R list, or you can specify that the output should be a data frame with columns named in the `df.col.names` argument. You can use vector of strings to get the results of multiple NetLogo reporters. 
 
 ```{r}
+NLCommand("setup")
 sheep_count <- NLDoReport(iterations = 100, 
                           command = "go", 
                           reporter = c("ticks", "count sheep", "count wolves"),

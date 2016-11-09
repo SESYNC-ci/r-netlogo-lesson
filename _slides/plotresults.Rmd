@@ -6,6 +6,7 @@ plot results using ggplot boxplot
 ```{r}
 # Prepare data for ggplot
 # library(ggplot2)
+
 # dd <-rep(55:65, each=20)
 # df <- data.frame(as.factor(dd),unlist(res))
 # names(df) <- c("density","percent.burned")

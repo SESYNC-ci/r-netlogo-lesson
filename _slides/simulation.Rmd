@@ -3,17 +3,43 @@
 
 Define a function to run a simulation with a given set of initial values. 
 
+Run 1000 time steps for each value of initial sheep and wolves from seq(10,250,10)
+Run each iteration 1000 times
+
+is there a combination of sheep and wolves that is stable (eg wolves don't go extinct)
+
 ```{r, cache=TRUE}
 # functions to control the simulation
-sim <- function(init_sheep){
-  NLCommand("set initial-number-sheep ", init_sheep, "setup")
-  NLDoCommandWhile("any? wolves", "go");
-  ret <- NLReport("count sheep")
-  return(ret)
-}
+init_sheep <- 100
+init_wolves <- 100
 
+sim <- function(init_sheep, init_wolves){
+  NLCommand("set initial-number-sheep ", init_sheep, 
+            "set initial-number-wolves", init_wolves, 
+            "setup")
+  sim_results <- NLDoReportWhile(condition = "any? wolves and any? sheep and ticks < 1000",
+                                 command = "go",
+                                 reporter = c("ticks", "count sheep", "count wolves"),
+                                 as.data.frame = TRUE,
+                                 df.col.names = c("timestep", "sheep", "wolves"))
+  return(sim_results)
+  }
 
-# s <- seq(10, 100, 10)
+sim <- function(init_sheep, init_wolves){
+  NLCommand("set initial-number-sheep ", init_sheep, 
+            "set initial-number-wolves", init_wolves, 
+            "setup")
+  sim_results <- NLDoReportWhile(condition = "any? wolves and any? sheep and ticks < 1000",
+                                 command = "go",
+                                 reporter = c("ticks", "count sheep", "count wolves"))
+  return(sim_results)
+  }
+
+sim(100, 100)
+
+test <- sapply(seq(10,200, 10), function(x) sim(init_sheep = 100, init_wolves = x))
+
+s <- seq(10, 100, 10)
 # pb <- sapply(s, function(init_sheep) sim(s))
 # 
 # rep.sim <- function(init_sheep, rep)         # run the simulation
