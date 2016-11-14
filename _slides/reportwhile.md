@@ -1,9 +1,9 @@
 ---
 ---
 
+## Report While
+
 Instead of specifying a given number of iterations, you can use the results of a NetLogo reporter to only repeat executing commands while a reporter returns `TRUE` using `NLDoReportWhile()`. 
-
-
   
 
 ~~~r
@@ -18,11 +18,11 @@ head(sim_results)
 {:.input}
 ~~~
   tick sheep wolves
-1    1    52     55
-2    2    52     56
-3    3    53     61
-4    4    52     61
-5    5    54     58
-6    6    57     65
+1    1    53     54
+2    2    55     56
+3    3    55     55
+4    4    57     58
+5    5    59     63
+6    6    61     62
 ~~~
 {:.output}

@@ -1,6 +1,8 @@
 ---
 ---
 
+## Setup
+
 After installing and loading the RNetLogo package, define the file path where NetLogo is installed on your computer.
 
 ```{r, warning=FALSE, message=FALSE, results = "hide"}

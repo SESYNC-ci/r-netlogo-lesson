@@ -1,17 +1,11 @@
 ---
 ---
-  
+
+## Reporting
+
 Use `NLReport()` to get a value or list of values.
 
 
-~~~r
-NLReport("ticks")
-~~~
-{:.input}
-~~~
-[1] 0
-~~~
-{:.input}
 ~~~r
 NLReport("count sheep")
 ~~~
@@ -30,7 +24,7 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 {:.input}
 ~~~
 [[1]]
-[1] 54
+[1] 50
 
 [[2]]
 [1] 53
@@ -39,10 +33,10 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 [1] 52
 
 [[4]]
-[1] 53
+[1] 52
 
 [[5]]
-[1] 56
+[1] 55
 ~~~
 {:.output}
 
@@ -58,17 +52,17 @@ sheep_count <- NLDoReport(iterations = 100,
                           reporter = c("ticks", "count sheep", "count wolves"),
                           as.data.frame = TRUE,
                           df.col.names = c("tick", "sheep", "wolves"))
-head(sheep_count)
+tail(sheep_count)
 ~~~
 {:.input}
 ~~~
-  tick sheep wolves
-1    1    56     51
-2    2    55     53
-3    3    52     53
-4    4    55     52
-5    5    63     55
-6    6    64     58
+    tick sheep wolves
+95    95   608     60
+96    96   633     63
+97    97   647     65
+98    98   656     64
+99    99   662     67
+100  100   670     65
 ~~~
 {:.output}
 

@@ -1,6 +1,8 @@
 ---
 ---
 
+## Modes
+
 Create an instance of RNetLogo using `NLStart()`. Use the `gui =` argument to control which mode to operate in. 
 
 
@@ -13,7 +15,6 @@ NLStart(nl.path, gui = FALSE)
 |------|-------------------------|---------------------------|
 | GUI (default) | yes | yes | no |
 | Headless | yes | no | yes |
-
 
 
 Quit a session using `NLQuit()`. Note that if you are running in GUI mode and quit, you will only be able to start NetLogo in a new R session. 

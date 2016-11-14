@@ -8,11 +8,10 @@
 # Launch RNetLogo and control an initial run of the
 # NetLogo Fire Model
 library(RNetLogo)
-nlDir <- "C:/Program Files (x86)/NetLogo 5.0.5"
-setwd(nlDir)
 
-nl.path <- getwd()
+nl.path <- "C:/Program Files (x86)/NetLogo 5.0.5/app"
 NLStart(nl.path)
+NLStart(nl.path, gui = FALSE)
 
 model.path <- file.path("models", "Sample Models", "Earth Science","Fire.nlogo")
 NLLoadModel(file.path(nl.path, model.path))
@@ -77,6 +76,7 @@ sim <- function(density) {
   return(ret)
 }
 
+replicate(n = 10, expr = sim(1))
 
 rep.sim <- function(density, rep)         # run the simulation
   lapply(density, function(dens) replicate(rep, sim(dens)))

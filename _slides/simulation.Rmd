@@ -1,46 +1,35 @@
 ---
 ---
 
+## Simulation
+
+Make a function to run a simulation, use it within a replicate function
+
 Define a function to run a simulation with a given set of initial values. 
 
-Run 1000 time steps for each value of initial sheep and wolves from seq(10,250,10)
-Run each iteration 1000 times
-
-is there a combination of sheep and wolves that is stable (eg wolves don't go extinct)
-
 ```{r, cache=TRUE}
-# functions to control the simulation
-init_sheep <- 100
-init_wolves <- 100
+sheep_r <- 5
 
-sim <- function(init_sheep, init_wolves){
-  NLCommand("set initial-number-sheep ", init_sheep, 
-            "set initial-number-wolves", init_wolves, 
-            "setup")
-  sim_results <- NLDoReportWhile(condition = "any? wolves and any? sheep and ticks < 1000",
-                                 command = "go",
-                                 reporter = c("ticks", "count sheep", "count wolves"),
-                                 as.data.frame = TRUE,
-                                 df.col.names = c("timestep", "sheep", "wolves"))
-  return(sim_results)
-  }
+# how long does it take the wolf population to collape
+my_sim <- function(sheep_r){
+  NLCommand("setup", "set sheep-reproduce", sheep_r)
+  NLDoCommandWhile("any? wolves and ticks < 1000", "go")
+  ret <- NLReport(reporter = "ticks")
+  return(ret)
+}
 
-sim <- function(init_sheep, init_wolves){
-  NLCommand("set initial-number-sheep ", init_sheep, 
-            "set initial-number-wolves", init_wolves, 
-            "setup")
-  sim_results <- NLDoReportWhile(condition = "any? wolves and any? sheep and ticks < 1000",
-                                 command = "go",
-                                 reporter = c("ticks", "count sheep", "count wolves"))
-  return(sim_results)
-  }
+my_sim(1)
 
-sim(100, 100)
+replicate(n = 10, expr = my_sim(1))
 
-test <- sapply(seq(10,200, 10), function(x) sim(init_sheep = 100, init_wolves = x))
+```
 
-s <- seq(10, 100, 10)
-# pb <- sapply(s, function(init_sheep) sim(s))
+repeat simulation
+
+```{r}
+# put replicate inside an lapply to run over a range of initial sheep_r values
+sheep_r <- seq(1, 2, 1)
+lapply(sheep_r, function(r) replicate(n = 2, expr = my_sim(r)))
 # 
 # rep.sim <- function(init_sheep, rep)         # run the simulation
 #   lapply(density, function(dens) replicate(rep, sim(dens)))
@@ -49,8 +38,6 @@ s <- seq(10, 100, 10)
 # d <- seq(55, 65, 1)                  # vector of densities to examine
 # res <- rep.sim(d, 20)                # Run the simulation
 
-
 ```
 
-  
   

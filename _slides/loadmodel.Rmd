@@ -1,6 +1,8 @@
 ---
 ---
-  
+
+## Load a NetLogo model
+
 Load a model with `NLLoadModel()` by specifying the location of a netlogo model file (*.nlogo). 
 
 Load the Wolf Sheep model from the Models Library by specifying the file path.

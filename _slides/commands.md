@@ -16,7 +16,7 @@ Repeat commands using `NLDoCommand()` and specifying a number of iterations.
 
 
 ~~~r
-NLDoCommand(iterations = 200, "go")
+NLDoCommand(iterations = 50, "go")
 ~~~
 {:.input}
 

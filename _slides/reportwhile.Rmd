@@ -1,9 +1,9 @@
 ---
 ---
 
+## Report While
+
 Instead of specifying a given number of iterations, you can use the results of a NetLogo reporter to only repeat executing commands while a reporter returns `TRUE` using `NLDoReportWhile()`. 
-
-
   
 ```{r}
 NLCommand("setup")
