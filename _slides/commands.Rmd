@@ -16,7 +16,7 @@ Repeat commands using `NLDoCommand()` and specifying a number of iterations.
 NLDoCommand(iterations = 200, "go")
 ```
 
-===
+<p>===</p>
 
 It is possible to submit more than one command at once and in combination with R variables. Remember to use "setup" after changing model parameters
 
