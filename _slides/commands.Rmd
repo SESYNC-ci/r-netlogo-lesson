@@ -1,6 +1,8 @@
 ---
 ---
 
+## Commands
+
 Execute commands in NetLogo using `NLCommand()`.
 
 ```{r}
@@ -15,7 +17,7 @@ NLDoCommand(iterations = 200, "go")
 ```
 
 ===
-  
+
 It is possible to submit more than one command at once and in combination with R variables. Remember to use "setup" after changing model parameters
 
 ```{r}
