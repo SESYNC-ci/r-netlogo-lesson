@@ -2,11 +2,12 @@ require(knitr)
 require(yaml)
 require(stringr)
 
-config = yaml.load_file("_config.yml")
+config = yaml.load_file("docs/_config.yml")
 render_markdown(fence_char = "~")
 opts_knit$set(
-    root.dir = '.',
-    base.url = '{{ site.baseurl }}/')
+  root.dir = '.',
+  base.dir = 'docs/',
+  base.url = '{{ site.baseurl }}/')
 opts_chunk$set(
     comment = NA,
     fig.path = "images/",
@@ -37,5 +38,5 @@ chunk = function(x, options) {
 knit_hooks$set(chunk = chunk)
 
 for (f in config$slide_sorter) {
-    knit(paste0('_slides/', f, ".Rmd"), paste0('_slides/', f, ".md"))
+    knit(paste0('docs/_slides_Rmd/', f, ".Rmd"), paste0('docs/_slides/', f, ".md"))
 }
