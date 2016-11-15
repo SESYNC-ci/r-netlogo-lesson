@@ -6,7 +6,7 @@
 Prepare data for plotting 
 
 ```{r}
-nw <-rep(n_wolves, each=reps)
+nw <- rep(n_wolves, each=reps)
 df <- data.frame(as.factor(nw), unlist(sim_results))
 names(df) <- c("n_wolves","time")
 head(df)
