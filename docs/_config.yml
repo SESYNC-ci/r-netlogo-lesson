@@ -1,3 +1,30 @@
+# Site 
+
+title: RNetLogo
+authors:
+ - Kelly Hondula
+ - Ian Carroll
+lesson: 2
+instructor: Kelly Hondula
+tag: v0.0
+
+# Slides
+
+slide_sorter:
+  - title
+  - intro
+  - setup
+  - modes
+  - loadmodel
+  - commands
+  - command2
+  - report
+  - report2
+  - reportwhile
+  - simulation
+  - plotresults
+  - review
+
 #####################################
 # Only modify content above or risk #
 # merge conflicts with upstream.    #
