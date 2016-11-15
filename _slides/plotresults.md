@@ -3,18 +3,35 @@
 
 ## Plotting
 
-plot results using ggplot boxplot
-  
+Prepare data for plotting 
+
 
 ~~~r
-# Prepare data for ggplot
-# library(ggplot2)
-
-# dd <-rep(55:65, each=20)
-# df <- data.frame(as.factor(dd),unlist(res))
-# names(df) <- c("density","percent.burned")
-# 
-# bp <- ggplot(df, aes(x=density, y=percent.burned)) + geom_boxplot()
-# bp + ggtitle("Forest Fire Simulation: variation near phase transition")
+nw <-rep(n_wolves, each=reps)
+df <- data.frame(as.factor(nw), unlist(sim_results))
+names(df) <- c("n_wolves","time")
+head(df)
 ~~~
 {:.input}
+~~~
+  n_wolves time
+1      100  175
+2      100  186
+3      100  204
+4      100  187
+5      100  191
+6      150  194
+~~~
+{:.output}
+
+Plot using ggplot to show range of outcomes for each level of initial number of wolves plus the actual values. 
+
+
+~~~r
+library(ggplot2)
+ggplot(df, aes(x=n_wolves, y=time)) + 
+  geom_boxplot()
+~~~
+
+![plot of chunk unnamed-chunk-2]({{ site.baseurl }}/images/unnamed-chunk-2-1.png)
+
