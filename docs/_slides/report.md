@@ -15,6 +15,8 @@ NLReport("count sheep")
 ~~~
 {:.output}
 
+===
+
 Or use `NLDoReport()` to repeat a command and reporter a defined number of times. This function is like a combination of `NLReport()` and `NLDoCommand()`.
 
 
@@ -24,19 +26,19 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 {:.input}
 ~~~
 [[1]]
-[1] 52
+[1] 51
 
 [[2]]
-[1] 56
+[1] 51
 
 [[3]]
-[1] 57
+[1] 51
 
 [[4]]
-[1] 56
+[1] 49
 
 [[5]]
-[1] 59
+[1] 49
 ~~~
 {:.output}
 
@@ -57,12 +59,12 @@ tail(sheep_count)
 {:.input}
 ~~~
     tick sheep wolves
-95    95   852     40
-96    96   879     40
-97    97   909     39
-98    98   935     42
-99    99   954     46
-100  100   980     47
+95    95  1284     38
+96    96  1320     39
+97    97  1358     40
+98    98  1412     43
+99    99  1448     48
+100  100  1490     50
 ~~~
 {:.output}
 

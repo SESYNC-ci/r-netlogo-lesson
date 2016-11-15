@@ -9,6 +9,8 @@ Use `NLReport()` to get a value or list of values.
 NLReport("count sheep")
 ```
 
+===
+
 Or use `NLDoReport()` to repeat a command and reporter a defined number of times. This function is like a combination of `NLReport()` and `NLDoCommand()`.
 
 ```{r}

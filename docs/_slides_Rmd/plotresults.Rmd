@@ -3,7 +3,7 @@
 
 ## Plotting
 
-Prepare data for plotting 
+Prepare data for plotting. The output of the `rep_sim()` function is a list based on the `lapply()`.
 
 ```{r}
 nw <- rep(n_wolves, each=reps)
@@ -12,7 +12,9 @@ names(df) <- c("n_wolves","time")
 head(df)
 ```
 
-Plot using ggplot to show range of outcomes for each level of initial number of wolves plus the actual values. 
+===
+
+Show range of outcomes for each level of initial number of wolves using a boxplot.
 
 ```{r}
 library(ggplot2)

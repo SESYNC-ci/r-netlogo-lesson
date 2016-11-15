@@ -17,9 +17,7 @@ slide_sorter:
   - modes
   - loadmodel
   - commands
-  - command2
   - report
-  - report2
   - reportwhile
   - simulation
   - plotresults

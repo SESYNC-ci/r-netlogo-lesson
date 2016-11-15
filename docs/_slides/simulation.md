@@ -3,9 +3,7 @@
 
 ## Simulation
 
-Make a function to run a simulation, use it within a replicate function
-
-Define a function to run a simulation with a given set of initial values. 
+Make a function to run a simulation, then use it within a replicate function
 
 
 ~~~r
@@ -34,11 +32,10 @@ replicate(n = 5, expr = my_sim(100))
 
 ===
 
-Repeat simulation over a range of parameters
+Repeat simulation over a range of parameters using the simulation function inside of an `lapply()` function.
 
 
 ~~~r
-# put replicate inside an lapply to run over a range of initial n wolves values
 n_wolves <- seq(100, 250, 50)
 reps <- 5
 

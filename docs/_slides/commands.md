@@ -20,7 +20,7 @@ NLDoCommand(iterations = 50, "go")
 ~~~
 {:.input}
 
-<p>===</p>
+===
 
 It is possible to submit more than one command at once and in combination with R variables. Remember to use "setup" after changing model parameters
 
