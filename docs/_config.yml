@@ -21,6 +21,9 @@ slide_sorter:
   - reportwhile
   - simulation
   - plotresults
+  - dftolist
+  - agents
+  - patches
   - review
 
 #####################################
