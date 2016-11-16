@@ -2,7 +2,9 @@
 ---
   
 ## Review
-  
+
+These are the basic steps for using the RNetLogo package: 
+
 1. Define where NetLogo is on your computer
 2. `NLStart()` in gui or headless mode
 3. `NLLoadModel()`
