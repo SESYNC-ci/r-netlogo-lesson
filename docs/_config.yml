@@ -11,7 +11,6 @@ tag: v0.0
 # Slides
 
 slide_sorter:
-  - title
   - intro
   - setup
   - modes
