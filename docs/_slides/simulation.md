@@ -18,7 +18,7 @@ my_sim(100)
 ~~~
 {:.input}
 ~~~
-[1] 178
+[1] 189
 ~~~
 {:.input}
 ~~~r
@@ -26,7 +26,7 @@ replicate(n = 5, expr = my_sim(100))
 ~~~
 {:.input}
 ~~~
-[1] 194 227 184 184 184
+[1] 176 197 226 183 188
 ~~~
 {:.output}
 
@@ -45,8 +45,19 @@ rep_sim <- function(n_wolves, reps){
 }
 
 sim_results <- rep_sim(n_wolves, reps)
-NLQuit()
 ~~~
 {:.input}
+~~~
+[1] "Java-Object{java.lang.NullPointerException}"
+~~~
+{:.input}
+~~~
+Error in NLDoCommandWhile("any? wolves and any? sheep and ticks < 500", : 
+~~~
+{:.input}
+~~~r
+NLQuit()
+~~~
+{:.output}
 
   

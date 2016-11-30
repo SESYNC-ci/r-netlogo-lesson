@@ -2,9 +2,7 @@
 ---
   
 ## Review
-
-These are the basic steps for using the RNetLogo package: 
-
+  
 1. Define where NetLogo is on your computer
 2. `NLStart()` in gui or headless mode
 3. `NLLoadModel()`
@@ -14,6 +12,8 @@ These are the basic steps for using the RNetLogo package:
 Also functions to return details of specific agents or patches with NLGetAgentSet, NLGetPatches, or a network of links. 
 
 RNetLogo package comes with sample R code showing implementation of each function in the package. In the RNetLogo folder, find these in `examples/code_samples/`
+
+---
 
 For further reading:
 
