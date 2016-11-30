@@ -31,3 +31,5 @@ NLSetPatches(patch.var = "pcolor",
              in.matrix = matrix(35, nrow = 51, ncol = 51))
 ~~~
 {:.input}
+
+Use `NLSetPatchSet()` to set variable values for one or more patches instead of the whole landscape. 

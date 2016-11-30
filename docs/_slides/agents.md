@@ -20,11 +20,13 @@ head(wolf_xy)
 {:.input}
 ~~~
   pxcor pycor
-1    -6    14
-2   -24     4
-3   -19    -3
-4    13     0
-5     4    -9
-6    -1    19
+1    19   -12
+2    19    -7
+3   -20    17
+4    24   -18
+5     8    16
+6     8   -23
 ~~~
 {:.output}
+
+Set a variable value for one or more agents using `NLSetAgentSet()`.
