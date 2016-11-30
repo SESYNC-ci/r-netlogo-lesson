@@ -17,3 +17,5 @@ wolf_xy <- NLGetAgentSet(agent.var = c("pxcor", "pycor"),
 head(wolf_xy)
 
 ```
+
+Set a variable value for one or more agents using `NLSetAgentSet()`.
