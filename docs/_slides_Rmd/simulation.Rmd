@@ -8,7 +8,7 @@ Make a function to run a simulation, then use it within a replicate function
 ```{r, cache=TRUE}
 my_sim <- function(n_wolves){
   NLCommand("setup", "set initial-number-wolves", n_wolves)
-  NLDoCommandWhile("any? wolves and any? sheep and ticks < 500", "go")
+  NLDoCommandWhile("any? wolves and any? sheep and ticks < 400", "go")
   ret <- NLReport(reporter = "ticks")
   return(ret)
 }

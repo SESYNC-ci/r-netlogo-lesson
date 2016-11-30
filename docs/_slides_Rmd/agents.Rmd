@@ -3,7 +3,7 @@
 
 ## Agents
 
-Use `NLGetAgentSet()` for reporting variable balues of one or more agents as a data frame, list, or vector.
+Use `NLGetAgentSet()` for reporting variable values of one or more agents as a data frame, list, or vector.
 
 ```{r, warning=FALSE, message=FALSE, results = "hide"}
 

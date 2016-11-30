@@ -19,7 +19,7 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 
 ===
 
-The default output of `NLDoReport()` is an R list, or you can specify that the output should be a data frame with columns named in the `df.col.names` argument. You can use vector of strings to get the results of multiple NetLogo reporters. 
+The default output of `NLDoReport()` is an R list, or you can specify that the output should be a data frame with columns named in the `df.col.names` argument. Each iteration becomes a row in the data frame. You can use vector of strings to get the results of multiple NetLogo reporters. 
 
 ```{r}
 NLCommand("setup")

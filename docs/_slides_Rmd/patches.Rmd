@@ -3,10 +3,22 @@
 
 ## Patches
 
-Describe using get and set patches
+Access information about patches using `NLGetPatches()`. Specify the variable of interest and which patches you are interested in. 
+
+Find the color `("pcolor")` of the central patch (0, 0) using:
 
 ```{r}
-# use NLGetPatches()
+NLGetPatches(patch.var = c("pxcor", "pycor", "pcolor"),
+             patchset = "patches with [pxcor = 0 and pycor = 0]")
 # use NLSetPatches()
 ```
 
+===
+
+Set patch variables using `NLSetPatches()`. Specify the patch variable and a matrix with the same dimensions as your NetLogo world. 
+
+```{r}
+NLSetPatches(patch.var = "pcolor", 
+             in.matrix = matrix(35, nrow = 51, ncol = 51))
+
+```
