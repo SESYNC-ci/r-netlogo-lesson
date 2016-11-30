@@ -13,9 +13,9 @@ Also functions to return details of specific agents or patches with NLGetAgentSe
 
 RNetLogo package comes with sample R code showing implementation of each function in the package. In the RNetLogo folder, find these in `examples/code_samples/`
 
----
+===
 
-For further reading:
+## For further reading
 
 * Thiele JC 2014. R Marries NetLogo: Introduction to the RNetLogo Package. Journal of Statistical Software 58(2).
 * *Package vignette*: Thiele JC. [Parallel processing with the RNetLogo Package](https://cran.r-project.org/web/packages/RNetLogo/vignettes/parallelProcessing.pdf)

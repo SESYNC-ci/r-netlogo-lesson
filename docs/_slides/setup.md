@@ -10,6 +10,6 @@ After installing and loading the RNetLogo package, define the file path where Ne
 # install.packages("RNetLogo")
 library(RNetLogo)
 
-nl.path <- "C:/Program Files/NetLogo 5.3.1/app"
+nl_path <- "C:/Program Files/NetLogo 5.3.1/app"
 ~~~
 {:.input}

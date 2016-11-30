@@ -9,7 +9,7 @@ Make a function to run a simulation, then use it within a replicate function
 ~~~r
 my_sim <- function(n_wolves){
   NLCommand("setup", "set initial-number-wolves", n_wolves)
-  NLDoCommandWhile("any? wolves and any? sheep and ticks < 500", "go")
+  NLDoCommandWhile("any? wolves and any? sheep and ticks < 400", "go")
   ret <- NLReport(reporter = "ticks")
   return(ret)
 }
@@ -18,7 +18,7 @@ my_sim(100)
 ~~~
 {:.input}
 ~~~
-[1] 189
+[1] 156
 ~~~
 {:.input}
 ~~~r
@@ -26,7 +26,7 @@ replicate(n = 5, expr = my_sim(100))
 ~~~
 {:.input}
 ~~~
-[1] 176 197 226 183 188
+[1] 179 190 187 279 196
 ~~~
 {:.output}
 
@@ -47,17 +47,5 @@ rep_sim <- function(n_wolves, reps){
 sim_results <- rep_sim(n_wolves, reps)
 ~~~
 {:.input}
-~~~
-[1] "Java-Object{java.lang.NullPointerException}"
-~~~
-{:.input}
-~~~
-Error in NLDoCommandWhile("any? wolves and any? sheep and ticks < 500", : 
-~~~
-{:.input}
-~~~r
-NLQuit()
-~~~
-{:.output}
 
   

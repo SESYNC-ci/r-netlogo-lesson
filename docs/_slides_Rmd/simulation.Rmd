@@ -33,7 +33,6 @@ rep_sim <- function(n_wolves, reps){
 }
 
 sim_results <- rep_sim(n_wolves, reps)
-NLQuit()
 ```
 
   

@@ -9,25 +9,18 @@ Prepare data for plotting. The output of the `rep_sim()` function is a list base
 ~~~r
 nw <- rep(n_wolves, each=reps)
 df <- data.frame(as.factor(nw), unlist(sim_results))
-~~~
-{:.input}
-~~~
-Error in data.frame(as.factor(nw), unlist(sim_results)): arguments imply differing number of rows: 20, 936
-~~~
-{:.input}
-~~~r
 names(df) <- c("n_wolves","time")
 head(df)
 ~~~
 {:.input}
 ~~~
   n_wolves time
-1      100   59
-2      100  193
-3      100  181
-4      100  194
-5      100  199
-6      150  201
+1      100  181
+2      100  184
+3      100  173
+4      100  207
+5      100  191
+6      150  206
 ~~~
 {:.output}
 

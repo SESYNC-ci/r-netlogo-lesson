@@ -26,25 +26,25 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 {:.input}
 ~~~
 [[1]]
-[1] 53
+[1] 52
 
 [[2]]
-[1] 55
+[1] 53
 
 [[3]]
-[1] 56
+[1] 52
 
 [[4]]
-[1] 59
+[1] 54
 
 [[5]]
-[1] 59
+[1] 57
 ~~~
 {:.output}
 
 ===
 
-The default output of `NLDoReport()` is an R list, or you can specify that the output should be a data frame with columns named in the `df.col.names` argument. You can use vector of strings to get the results of multiple NetLogo reporters. 
+The default output of `NLDoReport()` is an R list, or you can specify that the output should be a data frame with columns named in the `df.col.names` argument. Each iteration becomes a row in the data frame. You can use vector of strings to get the results of multiple NetLogo reporters. 
 
 
 ~~~r
@@ -59,12 +59,12 @@ tail(sheep_count)
 {:.input}
 ~~~
     tick sheep wolves
-95    95  1023     27
-96    96  1058     28
-97    97  1092     29
-98    98  1127     33
-99    99  1149     35
-100  100  1190     36
+95    95   963     47
+96    96  1000     49
+97    97  1023     52
+98    98  1056     56
+99    99  1086     58
+100  100  1105     56
 ~~~
 {:.output}
 
