@@ -10,25 +10,21 @@ Get the x and y coordinates of all of the wolves:
 
 
 ~~~r
+NLCommand("setup")
+
 wolf_xy <- NLGetAgentSet(agent.var = c("pxcor", "pycor"), 
               agentset = "wolves")
-~~~
-{:.input}
-~~~
-Error in NLGetAgentSet(agent.var = c("pxcor", "pycor"), agentset = "wolves"): The requested agentset is empty
-~~~
-{:.input}
-~~~r
+
 head(wolf_xy)
 ~~~
 {:.input}
 ~~~
   pxcor pycor
-1    -7   -19
-2     3     9
-3    -7   -12
-4     6    11
-5     1    19
-6    18   -23
+1    -6    14
+2   -24     4
+3   -19    -3
+4    13     0
+5     4    -9
+6    -1    19
 ~~~
 {:.output}

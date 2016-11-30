@@ -9,6 +9,7 @@ Get the x and y coordinates of all of the wolves:
 
 
 ```{r, warning=FALSE, message=FALSE}
+NLCommand("setup")
 
 wolf_xy <- NLGetAgentSet(agent.var = c("pxcor", "pycor"), 
               agentset = "wolves")
