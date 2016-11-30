@@ -8,9 +8,11 @@ Use `NLGetAgentSet()` for reporting variable values of one or more agents as a d
 Get the x and y coordinates of all of the wolves:
 
 
-```{r, warning=FALSE, message=FALSE, results = "hide"}
+```{r, warning=FALSE, message=FALSE}
 
-NLGetAgentSet(agent.var = c("pxcor", "pycor"), 
+wolf_xy <- NLGetAgentSet(agent.var = c("pxcor", "pycor"), 
               agentset = "wolves")
+
+head(wolf_xy)
 
 ```
