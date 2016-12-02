@@ -12,18 +12,18 @@ tag: v0.0
 # Slides
 
 slide_sorter:
-  - intro.Rmd
-  - setup.Rmd
-  - modes.Rmd
-  - loadmodel.Rmd
-  - commands.Rmd
-  - report.Rmd
-  - reportwhile.Rmd
-  - simulation.Rmd
-  - plotresults.Rmd
-  - agents.Rmd
-  - patches.Rmd
-  - review.Rmd
+  - intro
+  - setup
+  - modes
+  - loadmodel
+  - commands
+  - report
+  - reportwhile
+  - simulation
+  - plotresults
+  - agents
+  - patches
+  - review
 
 #####################################
 # Only modify content above or risk #
