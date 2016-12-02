@@ -1,7 +1,7 @@
 ---
 ---
 
-```{r warning=FALSE, message=FALSE, results = "hide", echo=FALSE}
+```{r, echo=FALSE}
 if (Sys.info()['sysname'] == 'Darwin') {
     JAVA_HOME <- system('/usr/libexec/java_home', intern=TRUE)
     dyn.load(file.path(JAVA_HOME, 'jre/lib/server/libjvm.dylib'))
@@ -13,7 +13,7 @@ After installing the RNetLogo package, load the library and define the file path
 
 On Windows, the following path is standard.
 
-```{r, warning=FALSE, message=FALSE, results = "hide"}
+```{r, message=FALSE, results="hide"}
 library(RNetLogo)
 
 nl_path <- "C:/Program Files/NetLogo 5.3.1/app"
@@ -21,6 +21,6 @@ nl_path <- "C:/Program Files/NetLogo 5.3.1/app"
 
 ```{r, echo=FALSE}
 if (Sys.info()['sysname'] == 'Darwin') {
-    nl_path <- "~/Applications/NetLogo 5.3.1/Java"
+    nl_path <- "/Applications/NetLogo 5.3.1/Java"
 }
 ```

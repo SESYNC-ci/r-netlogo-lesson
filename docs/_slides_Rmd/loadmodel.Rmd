@@ -8,9 +8,10 @@ Find the Wolf Sheep model file (with extension ".nlogo") in the Models Library, 
 ```{r}
 model_path <- file.path("models", "Sample Models", "Biology","Wolf Sheep Predation.nlogo")
 ```
+
 ```{r, echo=FALSE}
 if (Sys.info()['sysname'] == 'Darwin') {
-  nl_path <- "~/Applications/NetLogo 5.3.1"
+  nl_path <- "/Applications/NetLogo 5.3.1"
 }
 ```
 
