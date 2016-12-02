@@ -1,8 +1,8 @@
 ---
 ---
-  
+
 ## Review
-  
+
 1. Define where NetLogo is on your computer
 2. `NLStart()` in gui or headless mode
 3. `NLLoadModel()`
