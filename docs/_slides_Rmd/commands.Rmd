@@ -20,7 +20,7 @@ NLDoCommand(iterations = 50, "go")
 
 It is possible to submit more than one command at once and in combination with R variables. Remember to use "setup" after changing model parameters
 
-```{r}
+```{r, title = "{{ site.handouts }}"}
 init_sheep <- 50
 NLCommand("set initial-number-sheep ", init_sheep, "setup")
 ```
