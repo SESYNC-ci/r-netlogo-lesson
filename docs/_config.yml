@@ -1,6 +1,7 @@
-# Site 
+# Site
 
 title: RNetLogo
+handouts: worksheet-1.R
 authors:
  - Kelly Hondula
  - Ian Carroll
@@ -11,18 +12,18 @@ tag: v0.0
 # Slides
 
 slide_sorter:
-  - intro
-  - setup
-  - modes
-  - loadmodel
-  - commands
-  - report
-  - reportwhile
-  - simulation
-  - plotresults
-  - agents
-  - patches
-  - review
+  - intro.Rmd
+  - setup.Rmd
+  - modes.Rmd
+  - loadmodel.Rmd
+  - commands.Rmd
+  - report.Rmd
+  - reportwhile.Rmd
+  - simulation.Rmd
+  - plotresults.Rmd
+  - agents.Rmd
+  - patches.Rmd
+  - review.Rmd
 
 #####################################
 # Only modify content above or risk #
