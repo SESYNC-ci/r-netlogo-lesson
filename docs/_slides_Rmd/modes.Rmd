@@ -6,7 +6,7 @@
 Create an instance of RNetLogo using `NLStart()`. Use the `gui =` argument to control which mode to operate in. 
 
 
-```{r}
+```{r, title = "{{ site.handouts }}"}
 NLStart(nl_path, gui = FALSE)
 ```
 

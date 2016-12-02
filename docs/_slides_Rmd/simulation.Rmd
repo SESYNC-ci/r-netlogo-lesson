@@ -5,7 +5,7 @@
 
 Make a function to run a simulation, then use it within a replicate function
 
-```{r, cache=TRUE}
+```{r, cache=TRUE, title = "{{ site.handouts }}"}
 my_sim <- function(n_wolves){
   NLCommand("setup", "set initial-number-wolves", n_wolves)
   NLDoCommandWhile("any? wolves and any? sheep and ticks < 400", "go")
@@ -23,7 +23,7 @@ replicate(n = 5, expr = my_sim(100))
 
 Repeat simulation over a range of parameters using the simulation function inside of an `lapply()` function.
 
-```{r, cache=TRUE}
+```{r, cache=TRUE, title = "{{ site.handouts }}"}
 n_wolves <- seq(100, 250, 50)
 reps <- 5
 

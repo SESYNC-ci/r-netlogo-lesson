@@ -13,7 +13,7 @@ After installing the RNetLogo package, load the library and define the file path
 
 On Windows, the following path is standard.
 
-```{r, warning=FALSE, message=FALSE, results = "hide"}
+```{r, warning=FALSE, message=FALSE, results = "hide", title = "{{ site.handouts }}"}
 library(RNetLogo)
 
 nl_path <- "C:/Program Files/NetLogo 5.3.1/app"

@@ -5,7 +5,7 @@
 
 Prepare data for plotting. The output of the `rep_sim()` function is a list based on the `lapply()`.
 
-```{r}
+```{r, title = "{{ site.handouts }}"}
 nw <- rep(n_wolves, each=reps)
 df <- data.frame(as.factor(nw), unlist(sim_results))
 names(df) <- c("n_wolves","time")
@@ -16,7 +16,7 @@ head(df)
 
 Show range of outcomes for each level of initial number of wolves using a boxplot.
 
-```{r}
+```{r, title = "{{ site.handouts }}"}
 library(ggplot2)
 ggplot(df, aes(x=n_wolves, y=time)) + 
   geom_boxplot()

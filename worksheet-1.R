@@ -58,7 +58,7 @@ NLReport(...)
 
 NLCommand(... = )
 
-sheep_count <- .__C__.environment(iterations = 100,
+sheep_count <- ...environment(iterations = 100,
                           command = "go",
                           reporter = ... ,
                           ... = TRUE,
