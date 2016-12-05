@@ -10,8 +10,7 @@ Create an instance of RNetLogo using `NLStart()`. Use the `gui =` argument to co
 ~~~r
 NLStart(nl_path, gui = FALSE)
 ~~~
-{:.input}
-
+{:.text-document title="{{ site.handouts }}"}
 
 | Mode | Control in R | Control in NetLogo | Multiple NetLogo sessions |
 |------|-------------------------|---------------------------|
@@ -19,4 +18,4 @@ NLStart(nl_path, gui = FALSE)
 | Headless | yes | no | yes |
 
 
-Quit a session using `NLQuit()`. Note that if you are running in GUI mode and quit, you will only be able to start NetLogo in a new R session. 
+Quit a session using `NLQuit()`. Note that if you are running in GUI mode and quit, you will only be able to start NetLogo in a new R session.

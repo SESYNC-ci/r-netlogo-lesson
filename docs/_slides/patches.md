@@ -12,12 +12,12 @@ Find the color `("pcolor")` of the central patch (0, 0) using:
 NLGetPatches(patch.var = c("pxcor", "pycor", "pcolor"),
              patchset = "patches with [pxcor = 0 and pycor = 0]")
 ~~~
-{:.input}
+
 ~~~
   pxcor pycor pcolor
 1     0     0     55
 ~~~
-{:.output}
+{:.text-document title="{{ site.handouts }}"}
 
 ===
 
@@ -30,6 +30,6 @@ By using the code 35 for the color brown, we can kill all the grass using:
 NLSetPatches(patch.var = "pcolor", 
              in.matrix = matrix(35, nrow = 51, ncol = 51))
 ~~~
-{:.input}
+{:.text-document title="{{ site.handouts }}"}
 
 Use `NLSetPatchSet()` to set variable values for one or more patches instead of the whole landscape. 

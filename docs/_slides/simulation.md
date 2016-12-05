@@ -16,19 +16,19 @@ my_sim <- function(n_wolves){
 
 my_sim(100)
 ~~~
-{:.input}
+
 ~~~
-[1] 156
+[1] 180
 ~~~
-{:.input}
+
 ~~~r
 replicate(n = 5, expr = my_sim(100))
 ~~~
-{:.input}
+
 ~~~
-[1] 179 190 187 279 196
+[1] 198 166 178 197 193
 ~~~
-{:.output}
+{:.text-document title="{{ site.handouts }}"}
 
 ===
 
@@ -46,6 +46,6 @@ rep_sim <- function(n_wolves, reps){
 
 sim_results <- rep_sim(n_wolves, reps)
 ~~~
-{:.input}
+{:.text-document title="{{ site.handouts }}"}
 
   

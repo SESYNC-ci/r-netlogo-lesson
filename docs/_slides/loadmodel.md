@@ -3,14 +3,20 @@
 
 ## Load a NetLogo model
 
-Load a model with `NLLoadModel()` by specifying the location of a netlogo model file (*.nlogo). 
+Find the Wolf Sheep model file (with extension ".nlogo") in the Models Library, and save the full path to a variable.
 
-Load the Wolf Sheep model from the Models Library by specifying the file path.
-  
 
 ~~~r
 model_path <- file.path("models", "Sample Models", "Biology","Wolf Sheep Predation.nlogo")
+~~~
+{:.text-document title="{{ site.handouts }}"}
 
+
+
+Load the model with `NLLoadModel()` by joining the NetLogo prefix to the model path.
+
+
+~~~r
 NLLoadModel(file.path(nl_path, model_path))
 ~~~
-{:.input}
+{:.text-document title="{{ site.handouts }}"}

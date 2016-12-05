@@ -8,7 +8,10 @@ Prepare data for plotting. The output of the `rep_sim()` function is a list base
 ```{r, title = "{{ site.handouts }}"}
 nw <- rep(n_wolves, each=reps)
 df <- data.frame(as.factor(nw), unlist(sim_results))
-names(df) <- c("n_wolves","time")
+names(df) <- c("n_wolves", "time")
+```
+
+```{r}
 head(df)
 ```
 

@@ -13,16 +13,22 @@ sim_results <- NLDoReportWhile(condition = "any? wolves",
                                reporter = c("ticks", "count sheep", "count wolves"),
                                as.data.frame = TRUE,
                                df.col.names = c("tick", "sheep", "wolves"))
+~~~
+{:.text-document title="{{ site.handouts }}"}
+
+
+~~~r
 head(sim_results)
 ~~~
 {:.input}
 ~~~
   tick sheep wolves
-1    1    51     48
-2    2    54     51
-3    3    53     56
-4    4    54     55
-5    5    53     59
-6    6    57     62
+1    1    50     54
+2    2    51     55
+3    3    55     59
+4    4    56     57
+5    5    58     58
+6    6    58     61
 ~~~
 {:.output}
+

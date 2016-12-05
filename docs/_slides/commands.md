@@ -29,4 +29,4 @@ It is possible to submit more than one command at once and in combination with R
 init_sheep <- 50
 NLCommand("set initial-number-sheep ", init_sheep, "setup")
 ~~~
-{:.input}
+{:.text-document title="{{ site.handouts }}"}
