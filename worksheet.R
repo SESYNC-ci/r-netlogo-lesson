@@ -2,17 +2,16 @@
 #   Using RNetLogo    #
 #######################
 
-install.packages("RNetLogo")
+# if RNetLogo is not already installed
+# install.packages("RNetLogo")
+
+# Load the library
 library(...)
 
 # define where is NetLogo is
 # installed on your computer
 
-# for Windows users
-... <- "C:/Program Files/NetLogo 5.3.1/app"
-
-# for Mac users
-#
+... <- ".../NetLogo 5.3.1/..."
 
 # Start an instance of RNetLogo
 
@@ -20,7 +19,7 @@ library(...)
 
 # Load a model
 
-... <- file.path("models", "Sample Models", "Biology","Wolf Sheep Predation.nlogo")
+... <- ...("models", "Sample Models", "Biology","Wolf Sheep Predation.nlogo")
 
 ...(file.path(nl_path, model_path))
 
@@ -36,7 +35,7 @@ NLCommand(...)
 
 # Repeat commands for multiple iterations
 
-...(... =  50, "go")
+...(... = 50, "go")
 
 # Use an R object in a command
 
@@ -44,7 +43,9 @@ init_sheep <- 50
 
 NLCommand("set ...", ... , "setup")
 
-# Reporting
+################
+#   Reporting  #
+################
 
 NLReport(...)
 
@@ -56,27 +57,26 @@ NLReport(...)
 
 # Return results as a data frame
 
-NLCommand(... = )
+NLCommand(...)
 
-sheep_count <- ...environment(iterations = 100,
-                          command = "go",
-                          reporter = ... ,
-                          ... = TRUE,
-                          ... = c("tick", "sheep", "wolves"))
+sheep_count <- ... (iterations = 100,
+                    command = "go",
+                    reporter = ... ,
+                    ... = TRUE,
+                    df.col.names = ...)
 
-tail(sheep_count)
 
 #########################
-#  Use Conditionals     #
+#   Use Conditionals   #
 #########################
 
 NLCommand(...) 
 
 sim_results <- ... (... ,
-                               command = "go", 
-                               reporter = c("ticks", "count sheep", "count wolves"),
-                               as.data.frame = TRUE,
-                               df.col.names = c("tick", "sheep", "wolves"))
+                    command = "go", 
+                    reporter = c("ticks", "count sheep", "count wolves"),
+                    as.data.frame = TRUE,
+                    df.col.names = c("tick", "sheep", "wolves"))
 
 head(sim_results)
 
@@ -86,30 +86,35 @@ head(sim_results)
 ################################
 
 my_sim <- function(n_wolves){
-  NLCommand("setup", "set initial-number-wolves", n_wolves)
-  NLDoCommandWhile("any? wolves and any? sheep and ticks < 400", "go")
-  ret <- NLReport(reporter = "ticks")
-  return(ret)
+  
+  NLCommand("setup", ...)
+  ... ( "... and ... and ...", ... )
+  ret <- NLReport(...)
+  
+  return(...)
+  
 }
-
-my_sim(100)
 
 # Replicate
 
-replicate(n = 5, expr = my_sim(100))
+...(n = 5, expr = ...)
+
+# Run over different parameters
+
+n_wolves <- ...
+
+res <- lapply(... , function(x) ...)
 
 # Replicate using different parameters
 
-n_wolves <- seq(100, 250, 50)
-
-reps <- 5
-
-rep_sim <- function(n_wolves, reps){
-  results <- lapply(n_wolves, function(x) replicate(n = reps, expr = my_sim(x)))
-  return(results)
+rep_sim <- function(... , ...){
+  
+  results <- ... (... , function(x) ... )
+  return(...)
+  
 }
 
-sim_results <- rep_sim(n_wolves, reps)
+sim_results <- ... (n_wolves, reps = 5)
 
 ###########################
 #    Plot results         #
@@ -117,19 +122,19 @@ sim_results <- rep_sim(n_wolves, reps)
 
 # prepare data for plotting
 
-nw <- rep(n_wolves, each = reps)
+n_wolves_rep <- rep(..., each = ...)
 
-df <- data.frame(as.factor(nw), unlist(sim_results))
+df <- data.frame(as.factor(n_wolves_rep), unlist(...))
 
 names(df) <- c("n_wolves", "time")
 
 # plot using ggplot
 
-install.packages("ggplot2")
-library(ggplot2)
+# install.packages("ggplot2")
+# library(ggplot2)
 
-ggplot(df, aes(x = n_wolves, y = time)) + 
-  geom_boxplot()
+ggplot(df, aes(x = ..., y = ...)) + 
+  ...()
 
 
 #############
@@ -146,8 +151,28 @@ ggplot(df, aes(x = n_wolves, y = time)) +
 ...(... = c("pxcor", "pycor", ...),
              ... = "patches with [...]")
 
-NLSetPatches(patch.var = ..., 
-             in.matrix = matrix(...))
+... (patch.var = ..., 
+     in.matrix = matrix(...))
+
+################
+#  Challenges  #
+################
+
+# 1. create a background landscape
+# of grass and bare earth pathces
+# using a probability distribution
+
+
+# 2. create a function that runs 
+# the simulation and records the 
+# path of one or more agents
+
+
+# 3. set the initial distribution of 
+# agents based on a characteristic of
+# the landscape 
+
+
 
 
 

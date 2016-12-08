@@ -10,6 +10,7 @@ Create an instance of RNetLogo using `NLStart()`. Use the `gui =` argument to co
 NLStart(nl_path, gui = TRUE)
 ```
 
+
 | Mode | Control in R | Control in NetLogo | Multiple NetLogo sessions |
 |------|-------------------------|---------------------------|
 | GUI (default) | yes | yes | no |

@@ -3,11 +3,11 @@
 
 ## Plotting
 
-Prepare data for plotting. The output of the `rep_sim()` function is a list based on the `lapply()`.
+To prepare the model output for plotting, let's combine it with model inputs in a data frame. Remember that the output of the `rep_sim()` function is coming from an `lapply()` so it is a **l**ist.
 
 ```{r, title = "{{ site.handouts }}"}
-nw <- rep(n_wolves, each=reps)
-df <- data.frame(as.factor(nw), unlist(sim_results))
+n_wolves_rep <- rep(n_wolves, each=5)
+df <- data.frame(as.factor(n_wolves_rep), unlist(sim_results))
 names(df) <- c("n_wolves", "time")
 ```
 

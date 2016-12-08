@@ -5,22 +5,24 @@
 
 Execute commands in NetLogo using `NLCommand()`.
 
-```{r}
+```{r, title = "{{ site.handouts }}"}
 NLCommand("setup")             # call the setup routine 
 NLCommand("go")                # launch the model from R
 ```
 
 Repeat commands using `NLDoCommand()` and specifying a number of iterations. 
 
-```{r}
+```{r, title = "{{ site.handouts }}"}
 NLDoCommand(iterations = 50, "go")
 ```
 
 ===
 
-It is possible to submit more than one command at once and in combination with R variables. Remember to use "setup" after changing model parameters
+It is possible to submit more than one command at once and in combination with R variables.
 
 ```{r, title = "{{ site.handouts }}"}
 init_sheep <- 50
 NLCommand("set initial-number-sheep ", init_sheep, "setup")
 ```
+
+Remember to call the "setup" routine after changing model parameters.
