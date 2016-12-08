@@ -1,9 +1,9 @@
 ---
 ---
 
-## What is RNetLogo
+## What is RNetLogo?
 
-The R package RNetLogo provides a way to interact with the agent-based modeling platform NetLogo through the R environment with or without a GUI. 
+The R package `RNetLogo` provides a way to interact with the agent-based modeling platform NetLogo through the R environment with or without a GUI. 
 
 * load models
 * excute commands

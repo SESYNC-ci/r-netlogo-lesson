@@ -3,12 +3,15 @@
 
 ## Review
 
-1. Define where NetLogo is on your computer
-2. `NLStart()` in gui or headless mode
-3. `NLLoadModel()`
-4. Commands using `NLCommand()`, `NLDoCommand()` & `NLDoCommandWhile()`
-5. Reporting using `NLReport()`, `NLDoReport()` & `NLDoReportWhile()`
-6. Get & set variable values for agents and patches using `NLGetAgentSet()`, `NLGetPatches()`, `NLSetAgentSet()`, `NLSetPatches()` & `NLSetPatchSet()`.
+| Function(s) | Does what |
+|-------------|-------------|
+|   nl_path <- "`%filepath%`"  | Define where NetLogo is installed on your computer |
+| `NLStart()` | Begin an instance of NetLogo in gui or headless mode |
+| `NLLoadModel()` | Load a model file |
+| `NLCommand()`, `NLDoCommand()` & `NLDoCommandWhile()` | Run commands |
+| `NLReport()`, `NLDoReport()` & `NLDoReportWhile()` | Report values |
+| `NLGetAgentSet()`, `NLSetAgentSet()`    |  Get & set values for agents |
+|   `NLGetPatches()`, `NLSetPatches()` & `NLSetPatchSet()`  | Get & set values for patches |
 
 RNetLogo package comes with sample R code showing implementation of each function in the package. In the RNetLogo folder, find these in `examples/code_samples/`
 

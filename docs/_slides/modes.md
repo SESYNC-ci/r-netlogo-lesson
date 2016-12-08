@@ -12,6 +12,7 @@ NLStart(nl_path, gui = TRUE)
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 
+
 | Mode | Control in R | Control in NetLogo | Multiple NetLogo sessions |
 |------|-------------------------|---------------------------|
 | GUI (default) | yes | yes | no |

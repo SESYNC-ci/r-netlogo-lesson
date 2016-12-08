@@ -3,9 +3,9 @@
 
 ## Agents
 
-Use `NLGetAgentSet()` for reporting variable values of one or more agents as a data frame, list, or vector. You will need to know the names of the variable and the name of the agent or agentset. You can only get values from one type of agent.
+Use `NLGetAgentSet()` for reporting variable values of one or more agents. You will need to know the names of the variable and the name of the agent or agentset. You can only get values from one type of agent at a time.
 
-Get the x and y coordinates of all of the wolves:
+For example, get the x and y coordinates of all of the wolves using:
 
 
 
@@ -24,13 +24,15 @@ head(wolf_xy)
 {:.input}
 ~~~
   pxcor pycor
-1    -1   -10
-2   -19    10
-3   -19   -10
-4     1   -16
-5   -19     7
-6   -22   -15
+1     2   -17
+2    25     4
+3   -11    18
+4    -7   -21
+5   -20    17
+6    24     0
 ~~~
 {:.output}
+
+===
 
 Set a variable value for one or more agents using `NLSetAgentSet()`.

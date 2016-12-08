@@ -7,7 +7,7 @@ Find the Wolf Sheep model file (with extension ".nlogo") in the Models Library, 
 
 
 ~~~r
-model_path <- file.path("models", "Sample Models", "Biology","Wolf Sheep Predation.nlogo")
+model_path <- file.path("models", "Sample Models", "Biology", "Wolf Sheep Predation.nlogo")
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 
