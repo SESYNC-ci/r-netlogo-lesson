@@ -28,7 +28,9 @@ sheep_count <- NLDoReport(iterations = 100,
                           reporter = c("ticks", "count sheep", "count wolves"),
                           as.data.frame = TRUE,
                           df.col.names = c("tick", "sheep", "wolves"))
-tail(sheep_count)
 ```
 
+```{r}
+tail(sheep_count)
+```
 

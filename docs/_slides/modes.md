@@ -8,7 +8,7 @@ Create an instance of RNetLogo using `NLStart()`. Use the `gui =` argument to co
 
 
 ~~~r
-NLStart(nl_path, gui = FALSE)
+NLStart(nl_path, gui = TRUE)
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 

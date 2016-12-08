@@ -8,9 +8,13 @@ Access information about patches using `NLGetPatches()`. Specify the variable of
 Find the color `("pcolor")` of the central patch (0, 0) using:
 
 ```{r, title = "{{ site.handouts }}"}
-NLGetPatches(patch.var = c("pxcor", "pycor", "pcolor"),
+center_pcolor <- NLGetPatches(patch.var = c("pxcor", "pycor", "pcolor"),
              patchset = "patches with [pxcor = 0 and pycor = 0]")
 
+```
+
+```{r}
+center_pcolor
 ```
 
 ===

@@ -9,26 +9,35 @@ Make a function to run a simulation, then use it within a replicate function
 ~~~r
 my_sim <- function(n_wolves){
   NLCommand("setup", "set initial-number-wolves", n_wolves)
-  NLDoCommandWhile("any? wolves and any? sheep and ticks < 400", "go")
+  NLDoCommandWhile("any? wolves and any? sheep and ticks < 300", "go")
   ret <- NLReport(reporter = "ticks")
   return(ret)
 }
+~~~
+{:.text-document title="{{ site.handouts }}"}
 
+
+~~~r
 my_sim(100)
 ~~~
+{:.input}
+~~~
+[1] 164
+~~~
+{:.output}
 
-~~~
-[1] 180
-~~~
+===
+
 
 ~~~r
 replicate(n = 5, expr = my_sim(100))
 ~~~
 
 ~~~
-[1] 198 166 178 197 193
+[1] 174 194 200 224 180
 ~~~
 {:.text-document title="{{ site.handouts }}"}
+
 
 ===
 
@@ -47,5 +56,25 @@ rep_sim <- function(n_wolves, reps){
 sim_results <- rep_sim(n_wolves, reps)
 ~~~
 {:.text-document title="{{ site.handouts }}"}
+
+
+~~~r
+head(sim_results)
+~~~
+{:.input}
+~~~
+[[1]]
+[1] 173 195 202 184 183
+
+[[2]]
+[1] 205 187 234 188 198
+
+[[3]]
+[1] 237  79 271 243  79
+
+[[4]]
+[1] 207  58  77  64  55
+~~~
+{:.output}
 
   

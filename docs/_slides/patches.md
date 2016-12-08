@@ -9,15 +9,21 @@ Find the color `("pcolor")` of the central patch (0, 0) using:
 
 
 ~~~r
-NLGetPatches(patch.var = c("pxcor", "pycor", "pcolor"),
+center_pcolor <- NLGetPatches(patch.var = c("pxcor", "pycor", "pcolor"),
              patchset = "patches with [pxcor = 0 and pycor = 0]")
 ~~~
+{:.text-document title="{{ site.handouts }}"}
 
+
+~~~r
+center_pcolor
+~~~
+{:.input}
 ~~~
   pxcor pycor pcolor
 1     0     0     55
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.output}
 
 ===
 

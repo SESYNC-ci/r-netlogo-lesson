@@ -26,19 +26,19 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 {:.input}
 ~~~
 [[1]]
-[1] 54
+[1] 52
 
 [[2]]
-[1] 58
+[1] 51
 
 [[3]]
-[1] 59
+[1] 52
 
 [[4]]
-[1] 63
+[1] 56
 
 [[5]]
-[1] 67
+[1] 61
 ~~~
 {:.output}
 
@@ -54,18 +54,22 @@ sheep_count <- NLDoReport(iterations = 100,
                           reporter = c("ticks", "count sheep", "count wolves"),
                           as.data.frame = TRUE,
                           df.col.names = c("tick", "sheep", "wolves"))
-tail(sheep_count)
-~~~
-
-~~~
-    tick sheep wolves
-95    95   714     66
-96    96   723     67
-97    97   742     70
-98    98   763     72
-99    99   785     77
-100  100   803     82
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 
+
+~~~r
+tail(sheep_count)
+~~~
+{:.input}
+~~~
+    tick sheep wolves
+95    95  1015     68
+96    96  1034     71
+97    97  1059     76
+98    98  1075     77
+99    99  1100     82
+100  100  1125     85
+~~~
+{:.output}
 

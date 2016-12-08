@@ -6,18 +6,26 @@
 Make a function to run a simulation, then use it within a replicate function
 
 ```{r, cache=TRUE, title = "{{ site.handouts }}"}
+
 my_sim <- function(n_wolves){
   NLCommand("setup", "set initial-number-wolves", n_wolves)
-  NLDoCommandWhile("any? wolves and any? sheep and ticks < 400", "go")
+  NLDoCommandWhile("any? wolves and any? sheep and ticks < 300", "go")
   ret <- NLReport(reporter = "ticks")
   return(ret)
 }
 
-my_sim(100)
-
-replicate(n = 5, expr = my_sim(100))
-
 ```
+
+```{r}
+my_sim(100)
+```
+
+===
+
+```{r, cache=TRUE, title = "{{ site.handouts }}"}
+replicate(n = 5, expr = my_sim(100))
+```
+
 
 ===
 
@@ -33,6 +41,10 @@ rep_sim <- function(n_wolves, reps){
 }
 
 sim_results <- rep_sim(n_wolves, reps)
+```
+
+```{r}
+head(sim_results)
 ```
 
   
