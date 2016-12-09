@@ -19,8 +19,4 @@ Load the model with `NLLoadModel()` by joining the NetLogo prefix to the model p
 ~~~r
 NLLoadModel(file.path(nl_path, model_path))
 ~~~
-
-~~~
-Error in .jcall(nl.obj, "V", "loadModel", .jnew("java/lang/String", model.path)): RcallMethod: invalid object parameter
-~~~
 {:.text-document title="{{ site.handouts }}"}

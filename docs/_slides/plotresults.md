@@ -9,18 +9,7 @@ To prepare the model output for plotting, let's combine it with model inputs in 
 ~~~r
 n_wolves_rep <- rep(n_wolves, each=5)
 df <- data.frame(as.factor(n_wolves_rep), unlist(sim_results))
-~~~
-
-~~~
-Error in unlist(sim_results): object 'sim_results' not found
-~~~
-
-~~~r
 names(df) <- c("n_wolves", "time")
-~~~
-
-~~~
-Error in names(df) <- c("n_wolves", "time"): names() applied to a non-vector
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 
@@ -30,13 +19,13 @@ head(df)
 ~~~
 {:.input}
 ~~~
-                                              
-1 function (x, df1, df2, ncp, log = FALSE)    
-2 {                                           
-3     if (missing(ncp))                       
-4         .Call(C_df, x, df1, df2, log)       
-5     else .Call(C_dnf, x, df1, df2, ncp, log)
-6 }                                           
+  n_wolves time
+1      100   81
+2      100  186
+3      100  182
+4      100  205
+5      100  193
+6      150  197
 ~~~
 {:.output}
 
@@ -49,10 +38,6 @@ Show range of outcomes for each level of initial number of wolves using a boxplo
 library(ggplot2)
 ggplot(df, aes(x=n_wolves, y=time)) + 
   geom_boxplot()
-~~~
-
-~~~
-Error in if (is.waive(data) || empty(data)) return(cbind(data, PANEL = integer(0))): missing value where TRUE/FALSE needed
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 

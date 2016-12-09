@@ -22,7 +22,7 @@ my_sim(100)
 ~~~
 {:.input}
 ~~~
-Error in .jcall(nl.obj, "V", "command", .jnew("java/lang/String", command)): RcallMethod: invalid object parameter
+[1] 187
 ~~~
 {:.output}
 
@@ -38,7 +38,7 @@ replicate(n = 5, expr = my_sim(100))
 ~~~
 {:.input}
 ~~~
-Error in .jcall(nl.obj, "V", "command", .jnew("java/lang/String", command)): RcallMethod: invalid object parameter
+[1] 189 266 211 170 205
 ~~~
 {:.output}
 
@@ -53,10 +53,6 @@ n_wolves <- seq(100, 250, 50)
 
 res <- lapply(n_wolves, function(x) my_sim(x))
 ~~~
-
-~~~
-Error in .jcall(nl.obj, "V", "command", .jnew("java/lang/String", command)): RcallMethod: invalid object parameter
-~~~
 {:.text-document title="{{ site.handouts }}"}
 
 
@@ -65,7 +61,17 @@ head(res)
 ~~~
 {:.input}
 ~~~
-Error in head(res): object 'res' not found
+[[1]]
+[1] 176
+
+[[2]]
+[1] 190
+
+[[3]]
+[1] 205
+
+[[4]]
+[1] 300
 ~~~
 {:.output}
 
@@ -82,10 +88,6 @@ rep_sim <- function(n_wolves, reps){
 
 sim_results <- rep_sim(n_wolves = seq(100, 250, 50), reps = 5)
 ~~~
-
-~~~
-Error in .jcall(nl.obj, "V", "command", .jnew("java/lang/String", command)): RcallMethod: invalid object parameter
-~~~
 {:.text-document title="{{ site.handouts }}"}
 
 
@@ -94,7 +96,17 @@ head(sim_results)
 ~~~
 {:.input}
 ~~~
-Error in head(sim_results): object 'sim_results' not found
+[[1]]
+[1]  81 186 182 205 193
+
+[[2]]
+[1] 197 207  65 231 178
+
+[[3]]
+[1] 197 247 253 207  68
+
+[[4]]
+[1] 209  63  74 108 204
 ~~~
 {:.output}
 

@@ -12,10 +12,6 @@ Find the color `("pcolor")` of the central patch (0, 0) using:
 center_pcolor <- NLGetPatches(patch.var = c("pxcor", "pycor", "pcolor"),
              patchset = "patches with [pxcor = 0 and pycor = 0]")
 ~~~
-
-~~~
-Error in .jcall(nl.obj, "Ljava/lang/Object;", "report", .jnew("java/lang/String", : RcallMethod: invalid object parameter
-~~~
 {:.text-document title="{{ site.handouts }}"}
 
 
@@ -24,7 +20,8 @@ center_pcolor
 ~~~
 {:.input}
 ~~~
-Error in eval(expr, envir, enclos): object 'center_pcolor' not found
+  pxcor pycor pcolor
+1     0     0     55
 ~~~
 {:.output}
 
@@ -38,10 +35,6 @@ By using the code 35 for the color brown, we can kill all the grass using:
 ~~~r
 NLSetPatches(patch.var = "pcolor", 
              in.matrix = matrix(35, nrow = 51, ncol = 51))
-~~~
-
-~~~
-Error in .jcall(nl.obj, "Ljava/lang/Object;", "report", .jnew("java/lang/String", : RcallMethod: invalid object parameter
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 
