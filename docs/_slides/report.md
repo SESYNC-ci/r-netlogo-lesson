@@ -11,7 +11,7 @@ NLReport("count sheep")
 ~~~
 {:.input}
 ~~~
-[1] 50
+Error in .jcall(nl.obj, "Ljava/lang/Object;", "report", .jnew("java/lang/String", : RcallMethod: invalid object parameter
 ~~~
 {:.output}
 
@@ -25,20 +25,7 @@ NLDoReport(iterations = 5, command = "go", reporter = "count sheep")
 ~~~
 {:.input}
 ~~~
-[[1]]
-[1] 54
-
-[[2]]
-[1] 55
-
-[[3]]
-[1] 56
-
-[[4]]
-[1] 59
-
-[[5]]
-[1] 59
+Error in .jcall(nl.obj, "[Ljava/lang/Object;", "doReport", .jnew("java/lang/String", : RcallMethod: invalid object parameter
 ~~~
 {:.output}
 
@@ -49,11 +36,22 @@ The default output of `NLDoReport()` is an R list, or you can specify that the o
 
 ~~~r
 NLCommand("setup")
+~~~
+
+~~~
+Error in .jcall(nl.obj, "V", "command", .jnew("java/lang/String", command)): RcallMethod: invalid object parameter
+~~~
+
+~~~r
 sheep_count <- NLDoReport(iterations = 100, 
                           command = "go", 
                           reporter = c("ticks", "count sheep", "count wolves"),
                           as.data.frame = TRUE,
                           df.col.names = c("tick", "sheep", "wolves"))
+~~~
+
+~~~
+Error in .jcall(nl.obj, "[Ljava/lang/Object;", "doReport", .jnew("java/lang/String", : RcallMethod: invalid object parameter
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 
@@ -63,13 +61,7 @@ tail(sheep_count)
 ~~~
 {:.input}
 ~~~
-    tick sheep wolves
-95    95   831    111
-96    96   829    112
-97    97   839    122
-98    98   840    129
-99    99   850    137
-100  100   846    141
+Error in tail(sheep_count): object 'sheep_count' not found
 ~~~
 {:.output}
 

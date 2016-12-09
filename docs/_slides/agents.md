@@ -11,9 +11,19 @@ For example, get the x and y coordinates of all of the wolves using:
 
 ~~~r
 NLCommand("setup")
+~~~
 
+~~~
+Error in .jcall(nl.obj, "V", "command", .jnew("java/lang/String", command)): RcallMethod: invalid object parameter
+~~~
+
+~~~r
 wolf_xy <- NLGetAgentSet(agent.var = c("pxcor", "pycor"), 
               agentset = "wolves")
+~~~
+
+~~~
+Error in .jcall(nl.obj, "Ljava/lang/Object;", "report", .jnew("java/lang/String", : RcallMethod: invalid object parameter
 ~~~
 {:.text-document title="{{ site.handouts }}"}
 
@@ -23,13 +33,7 @@ head(wolf_xy)
 ~~~
 {:.input}
 ~~~
-  pxcor pycor
-1     2   -17
-2    25     4
-3   -11    18
-4    -7   -21
-5   -20    17
-6    24     0
+Error in head(wolf_xy): object 'wolf_xy' not found
 ~~~
 {:.output}
 
