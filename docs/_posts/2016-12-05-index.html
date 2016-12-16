@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RNetLogo</title>
+<meta name="description" content="Learn the RNetLogo package for agent-based models.">
+<link rel="canonical" href="https://sesync-ci.github.io/rnetlogo-lesson/class/archive.html">
+
+	  <link rel="stylesheet" href="https://cdn.rawgit.com/sesync-ci/lesson-style/1.1/docs/css/static.css">
+  </head>
+  <body>
+	  <div class="page-content">
+	    <div class="wrapper">
+        
+        
+<h1 style="text-transform: none;" id="rnetlogo">RNetLogo</h1>
+
+<p>Lesson 4 with <em>Kelly Hondula</em></p>
+
+<h2 id="contents">Contents</h2>
+
+<ul>
+  <li><a href="#/slides/intro">What is RNetLogo?</a></li>
+  <li><a href="#/slides/setup">Setup</a></li>
+  <li><a href="#/slides/modes">Modes</a></li>
+  <li><a href="#/slides/loadmodel">Load a NetLogo model</a></li>
+  <li><a href="#/slides/commands">Commands</a></li>
+  <li><a href="#/slides/report">Reporting</a></li>
+  <li><a href="#/slides/reportwhile">Report While</a></li>
+  <li><a href="#/slides/simulation">Simulation</a></li>
+  <li><a href="#/slides/plotresults">Plotting</a></li>
+  <li><a href="#/slides/agents">Agents</a></li>
+  <li><a href="#/slides/patches">Patches</a></li>
+  <li><a href="#/slides/review">Review</a></li>
+</ul>
+
+<hr />
+
+<p><a name="/slides/intro"></a></p>
+
+<h2 id="what-is-rnetlogo">What is RNetLogo?</h2>
+
+<p>The R package <code class="highlighter-rouge">RNetLogo</code> provides a way to interact with the agent-based modeling platform NetLogo through the R environment with or without a GUI.</p>
+
+<ul>
+  <li>load models</li>
+  <li>excute commands</li>
+  <li>push and get values from NetLogo reporters</li>
+</ul>
+
+<p>Design, store, and analyze results from simulation experiments in a systematic way.</p>
+
+<p class="ToS"><a href="#/slides/intro">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/setup"></a></p>
+
+<h2 id="setup">Setup</h2>
+
+<p>After installing the RNetLogo package, load the library and define the file path where NetLogo is installed on your computer.</p>
+
+<p>On Windows, the following path is standard.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">RNetLogo</span><span class="p">)</span><span class="w">
+
+</span><span class="n">nl_path</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"C:/Program Files/NetLogo 5.3.1/app"</span><span class="w">
+</span></code></pre>
+</div>
+
+<p class="ToS"><a href="#/slides/setup">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/modes"></a></p>
+
+<h2 id="modes">Modes</h2>
+
+<p>Create an instance of RNetLogo using <code class="highlighter-rouge">NLStart()</code>. Use the <code class="highlighter-rouge">gui =</code> argument to control which mode to operate in.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">NLStart</span><span class="p">(</span><span class="n">nl_path</span><span class="p">,</span><span class="w"> </span><span class="n">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mode</th>
+      <th>Control in R</th>
+      <th>Control in NetLogo</th>
+      <th>Multiple NetLogo sessions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GUI (default)</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>Headless</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Quit a session using <code class="highlighter-rouge">NLQuit()</code>. Note that if you are running in GUI mode and quit, you will only be able to start NetLogo in a new R session.</p>
+
+<p class="ToS"><a href="#/slides/modes">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/loadmodel"></a></p>
+
+<h2 id="load-a-netlogo-model">Load a NetLogo model</h2>
+
+<p>Find the Wolf Sheep model file (with extension “.nlogo”) in the Models Library, and save the full path to a variable.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">model_path</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">file.path</span><span class="p">(</span><span class="s2">"models"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Sample Models"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Biology"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Wolf Sheep Predation.nlogo"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Load the model with <code class="highlighter-rouge">NLLoadModel()</code> by joining the NetLogo prefix to the model path.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">NLLoadModel</span><span class="p">(</span><span class="n">file.path</span><span class="p">(</span><span class="n">nl_path</span><span class="p">,</span><span class="w"> </span><span class="n">model_path</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p class="ToS"><a href="#/slides/loadmodel">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/commands"></a></p>
+
+<h2 id="commands">Commands</h2>
+
+<p>Execute commands in NetLogo using <code class="highlighter-rouge">NLCommand()</code>.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">NLCommand</span><span class="p">(</span><span class="s2">"setup"</span><span class="p">)</span><span class="w">             </span><span class="c1"># call the setup routine 
+</span><span class="n">NLCommand</span><span class="p">(</span><span class="s2">"go"</span><span class="p">)</span><span class="w">                </span><span class="c1"># launch the model from R
+</span></code></pre>
+</div>
+
+<p>Repeat commands using <code class="highlighter-rouge">NLDoCommand()</code> and specifying a number of iterations.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">NLDoCommand</span><span class="p">(</span><span class="n">iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="s2">"go"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>It is possible to submit more than one command at once and in combination with R variables.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">init_sheep</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">50</span><span class="w">
+</span><span class="n">NLCommand</span><span class="p">(</span><span class="s2">"set initial-number-sheep "</span><span class="p">,</span><span class="w"> </span><span class="n">init_sheep</span><span class="p">,</span><span class="w"> </span><span class="s2">"setup"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Remember to call the “setup” routine after changing model parameters.</p>
+
+<p class="ToS"><a href="#/slides/commands">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/report"></a></p>
+
+<h2 id="reporting">Reporting</h2>
+
+<p>Use <code class="highlighter-rouge">NLReport()</code> to get a value or list of values.</p>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">NLReport</span><span class="p">(</span><span class="s2">"count sheep"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>[1] 50
+</code></pre>
+</div>
+
+<p>Or use <code class="highlighter-rouge">NLDoReport()</code> to repeat a command and reporter a defined number of times. This function is like a combination of <code class="highlighter-rouge">NLReport()</code> and <code class="highlighter-rouge">NLDoCommand()</code>.</p>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">NLDoReport</span><span class="p">(</span><span class="n">iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"go"</span><span class="p">,</span><span class="w"> </span><span class="n">reporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"count sheep"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>[[1]]
+[1] 54
+
+[[2]]
+[1] 55
+
+[[3]]
+[1] 56
+
+[[4]]
+[1] 59
+
+[[5]]
+[1] 59
+</code></pre>
+</div>
+
+<p>The default output of <code class="highlighter-rouge">NLDoReport()</code> is an R list, or you can specify that the output should be a data frame with columns named in the <code class="highlighter-rouge">df.col.names</code> argument. Each iteration becomes a row in the data frame. You can use vector of strings to get the results of multiple NetLogo reporters.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">NLCommand</span><span class="p">(</span><span class="s2">"setup"</span><span class="p">)</span><span class="w">
+</span><span class="n">sheep_count</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">NLDoReport</span><span class="p">(</span><span class="n">iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> 
+                          </span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"go"</span><span class="p">,</span><span class="w"> 
+                          </span><span class="n">reporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"ticks"</span><span class="p">,</span><span class="w"> </span><span class="s2">"count sheep"</span><span class="p">,</span><span class="w"> </span><span class="s2">"count wolves"</span><span class="p">),</span><span class="w">
+                          </span><span class="n">as.data.frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
+                          </span><span class="n">df.col.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"tick"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sheep"</span><span class="p">,</span><span class="w"> </span><span class="s2">"wolves"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">tail</span><span class="p">(</span><span class="n">sheep_count</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>    tick sheep wolves
+95    95   831    111
+96    96   829    112
+97    97   839    122
+98    98   840    129
+99    99   850    137
+100  100   846    141
+</code></pre>
+</div>
+
+<p class="ToS"><a href="#/slides/report">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/reportwhile"></a></p>
+
+<h2 id="report-while">Report While</h2>
+
+<p>Instead of specifying a given number of iterations, you can use the results of a NetLogo reporter to only repeat executing commands while a reporter returns <code class="highlighter-rouge">TRUE</code> using <code class="highlighter-rouge">NLDoReportWhile()</code>.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">NLCommand</span><span class="p">(</span><span class="s2">"setup"</span><span class="p">)</span><span class="w">
+</span><span class="n">sim_results</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">NLDoReportWhile</span><span class="p">(</span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"any? wolves"</span><span class="p">,</span><span class="w"> 
+                               </span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"go"</span><span class="p">,</span><span class="w">
+                               </span><span class="n">reporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"ticks"</span><span class="p">,</span><span class="w"> </span><span class="s2">"count sheep"</span><span class="p">,</span><span class="w"> </span><span class="s2">"count wolves"</span><span class="p">),</span><span class="w">
+                               </span><span class="n">as.data.frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
+                               </span><span class="n">df.col.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"tick"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sheep"</span><span class="p">,</span><span class="w"> </span><span class="s2">"wolves"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">sim_results</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>  tick sheep wolves
+1    1    51     51
+2    2    55     50
+3    3    58     46
+4    4    58     48
+5    5    58     50
+6    6    59     56
+</code></pre>
+</div>
+
+<p class="ToS"><a href="#/slides/reportwhile">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/simulation"></a></p>
+
+<h2 id="simulation">Simulation</h2>
+
+<p>Streamline the process of executing a model run by defining an R function that runs multiple lines of RNetLogo functions. See the <a href="https://sesync-ci.github.io/basic-R-lesson/#/slides/functions">basic R lesson</a> to learn about writing functions in R.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">my_sim</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">n_wolves</span><span class="p">){</span><span class="w">
+  </span><span class="n">NLCommand</span><span class="p">(</span><span class="s2">"setup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"set initial-number-wolves"</span><span class="p">,</span><span class="w"> </span><span class="n">n_wolves</span><span class="p">)</span><span class="w">
+  </span><span class="n">NLDoCommandWhile</span><span class="p">(</span><span class="s2">"any? wolves and any? sheep and ticks &lt; 300"</span><span class="p">,</span><span class="w"> </span><span class="s2">"go"</span><span class="p">)</span><span class="w">
+  </span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">NLReport</span><span class="p">(</span><span class="n">reporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ticks"</span><span class="p">)</span><span class="w">
+  </span><span class="nf">return</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">my_sim</span><span class="p">(</span><span class="m">100</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>[1] 187
+</code></pre>
+</div>
+
+<p>What are the input and output of this model?</p>
+
+<p>The <code class="highlighter-rouge">replicate</code> function makes it easy to run this function multiple times.</p>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">replicate</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_sim</span><span class="p">(</span><span class="m">100</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>[1] 189 266 211 170 205
+</code></pre>
+</div>
+
+<p>To run the function using different parameters, create a vector to use with an <code class="highlighter-rouge">lapply()</code> function</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">n_wolves</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">250</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">)</span><span class="w">
+
+</span><span class="n">res</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lapply</span><span class="p">(</span><span class="n">n_wolves</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">my_sim</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>[[1]]
+[1] 176
+
+[[2]]
+[1] 190
+
+[[3]]
+[1] 205
+
+[[4]]
+[1] 300
+</code></pre>
+</div>
+
+<p>We can define a function that combines <code class="highlighter-rouge">replicate</code> and <code class="highlighter-rouge">lapply</code> to repeat a simulation the same number of times for each value in the range of parameters.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">rep_sim</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">n_wolves</span><span class="p">,</span><span class="w"> </span><span class="n">reps</span><span class="p">){</span><span class="w">
+  </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lapply</span><span class="p">(</span><span class="n">n_wolves</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">replicate</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reps</span><span class="p">,</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_sim</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="w">
+  </span><span class="nf">return</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">sim_results</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rep_sim</span><span class="p">(</span><span class="n">n_wolves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">250</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">),</span><span class="w"> </span><span class="n">reps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">sim_results</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>[[1]]
+[1]  81 186 182 205 193
+
+[[2]]
+[1] 197 207  65 231 178
+
+[[3]]
+[1] 197 247 253 207  68
+
+[[4]]
+[1] 209  63  74 108 204
+</code></pre>
+</div>
+
+<p class="ToS"><a href="#/slides/simulation">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/plotresults"></a></p>
+
+<h2 id="plotting">Plotting</h2>
+
+<p>To prepare the model output for plotting, let’s combine it with model inputs in a data frame. Remember that the output of the <code class="highlighter-rouge">rep_sim()</code> function is coming from an <code class="highlighter-rouge">lapply()</code> so it is a <strong>l</strong>ist.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">n_wolves_rep</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="n">n_wolves</span><span class="p">,</span><span class="w"> </span><span class="n">each</span><span class="o">=</span><span class="m">5</span><span class="p">)</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">as.factor</span><span class="p">(</span><span class="n">n_wolves_rep</span><span class="p">),</span><span class="w"> </span><span class="n">unlist</span><span class="p">(</span><span class="n">sim_results</span><span class="p">))</span><span class="w">
+</span><span class="nf">names</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"n_wolves"</span><span class="p">,</span><span class="w"> </span><span class="s2">"time"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>  n_wolves time
+1      100   81
+2      100  186
+3      100  182
+4      100  205
+5      100  193
+6      150  197
+</code></pre>
+</div>
+
+<p>Show range of outcomes for each level of initial number of wolves using a boxplot.</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">n_wolves</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">time</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">geom_boxplot</span><span class="p">()</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="/rnetlogo-lesson/images/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
+
+<p class="ToS"><a href="#/slides/plotresults">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/agents"></a></p>
+
+<h2 id="agents">Agents</h2>
+
+<p>Use <code class="highlighter-rouge">NLGetAgentSet()</code> for reporting variable values of one or more agents. You will need to know the names of the variable and the name of the agent or agentset. You can only get values from one type of agent at a time.</p>
+
+<p>For example, get the x and y coordinates of all of the wolves using:</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">NLCommand</span><span class="p">(</span><span class="s2">"setup"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">wolf_xy</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">NLGetAgentSet</span><span class="p">(</span><span class="n">agent.var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"pxcor"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pycor"</span><span class="p">),</span><span class="w"> 
+              </span><span class="n">agentset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"wolves"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">head</span><span class="p">(</span><span class="n">wolf_xy</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>  pxcor pycor
+1     2   -17
+2    25     4
+3   -11    18
+4    -7   -21
+5   -20    17
+6    24     0
+</code></pre>
+</div>
+
+<p>Set a variable value for one or more agents using <code class="highlighter-rouge">NLSetAgentSet()</code>.</p>
+
+<p class="ToS"><a href="#/slides/agents">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/patches"></a></p>
+
+<h2 id="patches">Patches</h2>
+
+<p>Access information about patches using <code class="highlighter-rouge">NLGetPatches()</code>. Specify the variable of interest and which patches you are interested in.</p>
+
+<p>Find the color <code class="highlighter-rouge">("pcolor")</code> of the central patch (0, 0) using:</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">center_pcolor</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">NLGetPatches</span><span class="p">(</span><span class="n">patch.var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"pxcor"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pycor"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pcolor"</span><span class="p">),</span><span class="w">
+             </span><span class="n">patchset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"patches with [pxcor = 0 and pycor = 0]"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-r input highlighter-rouge"><pre class="highlight"><code><span class="n">center_pcolor</span><span class="w">
+</span></code></pre>
+</div>
+<div class="output highlighter-rouge"><pre class="highlight"><code>  pxcor pycor pcolor
+1     0     0     55
+</code></pre>
+</div>
+
+<p>Set patch variables using <code class="highlighter-rouge">NLSetPatches()</code>. Specify the patch variable and a matrix with the same dimensions as your NetLogo world.</p>
+
+<p>By using the code 35 for the color brown, we can kill all the grass using:</p>
+
+<div class="language-r text-document highlighter-rouge" title="worksheet-4.R"><pre class="highlight"><code><span class="n">NLSetPatches</span><span class="p">(</span><span class="n">patch.var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"pcolor"</span><span class="p">,</span><span class="w"> 
+             </span><span class="n">in.matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matrix</span><span class="p">(</span><span class="m">35</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">51</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">51</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Use <code class="highlighter-rouge">NLSetPatchSet()</code> to set variable values for one or more patches instead of the whole landscape.</p>
+
+<p class="ToS"><a href="#/slides/patches">Top of Section</a></p>
+
+<hr />
+
+<p><a name="/slides/review"></a></p>
+
+<h2 id="review">Review</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Function(s)</th>
+      <th>Does what</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>nl_path &lt;- “<code class="highlighter-rouge">%filepath%</code>”</td>
+      <td>Define where NetLogo is installed on your computer</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NLStart()</code></td>
+      <td>Begin an instance of NetLogo in gui or headless mode</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NLLoadModel()</code></td>
+      <td>Load a model file</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NLCommand()</code>, <code class="highlighter-rouge">NLDoCommand()</code> &amp; <code class="highlighter-rouge">NLDoCommandWhile()</code></td>
+      <td>Run commands</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NLReport()</code>, <code class="highlighter-rouge">NLDoReport()</code> &amp; <code class="highlighter-rouge">NLDoReportWhile()</code></td>
+      <td>Report values</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NLGetAgentSet()</code>, <code class="highlighter-rouge">NLSetAgentSet()</code></td>
+      <td>Get &amp; set values for agents</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NLGetPatches()</code>, <code class="highlighter-rouge">NLSetPatches()</code> &amp; <code class="highlighter-rouge">NLSetPatchSet()</code></td>
+      <td>Get &amp; set values for patches</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>RNetLogo package comes with sample R code showing implementation of each function in the package. In the RNetLogo folder, find these in <code class="highlighter-rouge">examples/code_samples/</code></p>
+
+<h2 id="references-and-further-reading">References and further reading</h2>
+
+<ul>
+  <li>Thiele JC 2014. <a href="https://www.jstatsoft.org/article/view/v058i02">R Marries NetLogo: Introduction to the RNetLogo Package</a>. Journal of Statistical Software 58(2).</li>
+  <li><em>Package vignette</em>: Thiele JC. <a href="https://cran.r-project.org/web/packages/RNetLogo/vignettes/parallelProcessing.pdf">Parallel processing with the RNetLogo Package</a></li>
+  <li><em>Original package description</em>: Thiele JC, W Kurth, and V Grimm. 2012. <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00180.x/abstract">RNetLogo: an R package for running and exploring individual-based models implemented in NetLogo</a>. <strong>Methods in Ecology and Evolution</strong> <em>3</em>:480-483.</li>
+  <li>Video demo of <a href="http://curleylab.psych.columbia.edu/netlogo.html">Running Agent-Based Modeling in R with NetLogo</a> from Curley lab at Columbia Univ</li>
+</ul>
+
+<p class="ToS"><a href="#/slides/review">Top of Section</a></p>
+
+<hr />
+
+
+
+	    </div>
+	  </div>
+  </body>
+</html>
