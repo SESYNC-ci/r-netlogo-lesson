@@ -1,18 +1,12 @@
 # Lesson
 
-title:
-handouts:
-tag:
-lesson:
-instructor:
-authors:
-
 title: RNetLogo
 handouts: worksheet.R
-authors:
-  - Kelly Hondula
+tag: v0.0
 lesson: 4
 instructor: Kelly Hondula
+authors:
+  - Kelly Hondula
 
 # Slides
 
