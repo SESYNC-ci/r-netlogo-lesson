@@ -16,11 +16,13 @@ On Windows, the following path is standard.
 ```{r, message=FALSE, results = "hide", title = "{{ site.handouts }}"}
 library(RNetLogo)
 
-nl_path <- "C:/Program Files/NetLogo 5.3.1/app"
+nl_jar <- "C:/Program Files/NetLogo 6.0.1/app/netlogo-6.0.1.jar"
+nl_path <- dirname(nl_jar)
 ```
 
 ```{r, echo=FALSE}
 if (Sys.info()['sysname'] == 'Darwin') {
-    nl_path <- "/Applications/NetLogo 5.3.1/Java"
+    nl_path <- "/Applications/NetLogo 6.0.1/Java/netlogo-6.0.1.jar"
+    nl_path <- dirname(nl_jar)
 }
 ```

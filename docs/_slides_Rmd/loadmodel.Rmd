@@ -11,7 +11,7 @@ model_path <- file.path("models", "Sample Models", "Biology", "Wolf Sheep Predat
 
 ```{r, echo=FALSE}
 if (Sys.info()['sysname'] == 'Darwin') {
-  nl_path <- "/Applications/NetLogo 5.3.1"
+  nl_path <- "/Applications/NetLogo 6.0.1"
 }
 ```
 

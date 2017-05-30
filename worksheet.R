@@ -11,11 +11,12 @@ library(...)
 # define where is NetLogo is
 # installed on your computer
 
-... <- ".../NetLogo 5.3.1/..."
+nl_jar <- "..."
 
 # Start an instance of RNetLogo
 
-...(nl_path, gui = TRUE)
+nl_path <- dirname(nl_jar)
+...(nl_path, gui = TRUE, nl.jarname = basename(nl_jar))
 
 # Load a model
 

@@ -7,7 +7,7 @@ Create an instance of RNetLogo using `NLStart()`. Use the `gui =` argument to co
 
 
 ```{r, title = "{{ site.handouts }}"}
-NLStart(nl_path, gui = TRUE)
+NLStart(nl_path, gui = TRUE, nl.jarname = basename(nl_jar))
 ```
 
 
