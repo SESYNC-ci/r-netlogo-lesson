@@ -13,16 +13,19 @@ After installing the RNetLogo package, load the library and define the file path
 
 On Windows, the following path is standard.
 
-```{r, message=FALSE, results = "hide", title = "{{ site.handouts }}"}
+```{r, eval = FALSE, title = "{{ site.handouts[0] }}"}
 library(RNetLogo)
 
-nl_jar <- "C:/Program Files/NetLogo 6.0.1/app/netlogo-6.0.1.jar"
+nl_jar <- # path to NetLogo JAR files
 nl_path <- dirname(nl_jar)
 ```
 
 ```{r, echo=FALSE}
-if (Sys.info()['sysname'] == 'Darwin') {
-    nl_path <- "/Applications/NetLogo 6.0.1/Java/netlogo-6.0.1.jar"
-    nl_path <- dirname(nl_jar)
-}
+library(RNetLogo)
+nl_jar <- switch(Sys.info()['sysname'],
+  'Darwin' = '/Applications/NetLogo 6.0.2/Java/netlogo-6.0.2.jar',
+  'Linux' = '~/Downloads/NetLogo 6.0.2/app/netlogo-6.0.2.jar',
+  'Windows' = 'C:/Program Files/NetLogo 6.0.2/app/netlogo-6.0.2.jar'
+)
+nl_path <- dirname(nl_jar)
 ```

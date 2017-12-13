@@ -5,18 +5,13 @@
 
 Find the Wolf Sheep model file (with extension ".nlogo") in the Models Library, and save the full path to a variable.
 
-```{r, title = "{{ site.handouts }}"}
-model_path <- file.path("models", "Sample Models", "Biology", "Wolf Sheep Predation.nlogo")
-```
-
-```{r, echo=FALSE}
-if (Sys.info()['sysname'] == 'Darwin') {
-  nl_path <- "/Applications/NetLogo 6.0.1"
-}
+```{r, title = "{{ site.handouts[0] }}"}
+model_path <- file.path("models", "Sample Models",
+  "Biology", "Wolf Sheep Predation.nlogo")
 ```
 
 Load the model with `NLLoadModel()` by joining the NetLogo prefix to the model path.
 
-```{r, title = "{{ site.handouts }}"}
-NLLoadModel(file.path(nl_path, model_path))
+```{r, title = "{{ site.handouts[0] }}"}
+NLLoadModel(file.path(nl_path, model_path)) 
 ```

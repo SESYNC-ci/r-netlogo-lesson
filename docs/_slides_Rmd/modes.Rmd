@@ -6,8 +6,8 @@
 Create an instance of RNetLogo using `NLStart()`. Use the `gui =` argument to control which mode to operate in. 
 
 
-```{r, title = "{{ site.handouts }}"}
-NLStart(nl_path, gui = TRUE, nl.jarname = basename(nl_jar))
+```{r, title = "{{ site.handouts[0] }}"}
+NLStart(nl_path, gui = FALSE, nl.jarname = basename(nl_jar))
 ```
 
 

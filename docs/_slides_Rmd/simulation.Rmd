@@ -5,7 +5,7 @@
 
 Streamline the process of executing a model run by defining an R function that runs multiple lines of RNetLogo functions. See the [basic R lesson](https://sesync-ci.github.io/basic-R-lesson/#/slides/functions) to learn about writing functions in R. 
 
-```{r, cache=TRUE, title = "{{ site.handouts }}"}
+```{r, cache=TRUE, title = "{{ site.handouts[0] }}"}
 
 my_sim <- function(n_wolves){
   NLCommand("setup", "set initial-number-wolves", n_wolves)
@@ -35,7 +35,7 @@ replicate(n = 5, expr = my_sim(100))
 
 To run the function using different parameters, create a vector to use with an `lapply()` function
 
-```{r, cache=TRUE, title = "{{ site.handouts }}"}
+```{r, cache=TRUE, title = "{{ site.handouts[0] }}"}
 n_wolves <- seq(100, 250, 50)
 
 res <- lapply(n_wolves, function(x) my_sim(x))
@@ -49,7 +49,7 @@ head(res)
 
 We can define a function that combines `replicate` and `lapply` to repeat a simulation the same number of times for each value in the range of parameters.
 
-```{r, cache=TRUE, title = "{{ site.handouts }}"}
+```{r, cache=TRUE, title = "{{ site.handouts[0] }}"}
 rep_sim <- function(n_wolves, reps){
   res <- lapply(n_wolves, function(x) replicate(n = reps, expr = my_sim(x)))
   return(res)

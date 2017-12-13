@@ -14,7 +14,7 @@ my_sim <- function(n_wolves){
   return(ret)
 }
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 
 ~~~r
@@ -22,7 +22,7 @@ my_sim(100)
 ~~~
 {:.input}
 ~~~
-[1] 187
+[1] 172
 ~~~
 {:.output}
 
@@ -38,7 +38,7 @@ replicate(n = 5, expr = my_sim(100))
 ~~~
 {:.input}
 ~~~
-[1] 189 266 211 170 205
+[1] 254 201 185 189 206
 ~~~
 {:.output}
 
@@ -53,7 +53,7 @@ n_wolves <- seq(100, 250, 50)
 
 res <- lapply(n_wolves, function(x) my_sim(x))
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 
 ~~~r
@@ -62,16 +62,16 @@ head(res)
 {:.input}
 ~~~
 [[1]]
-[1] 176
+[1] 182
 
 [[2]]
-[1] 190
+[1] 192
 
 [[3]]
-[1] 205
+[1] 189
 
 [[4]]
-[1] 300
+[1] 235
 ~~~
 {:.output}
 
@@ -88,7 +88,7 @@ rep_sim <- function(n_wolves, reps){
 
 sim_results <- rep_sim(n_wolves = seq(100, 250, 50), reps = 5)
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 
 ~~~r
@@ -97,16 +97,16 @@ head(sim_results)
 {:.input}
 ~~~
 [[1]]
-[1]  81 186 182 205 193
+[1]  62 182 195 226 179
 
 [[2]]
-[1] 197 207  65 231 178
+[1] 225 202 206 203 205
 
 [[3]]
-[1] 197 247 253 207  68
+[1] 194 239 223  86  59
 
 [[4]]
-[1] 209  63  74 108 204
+[1] 299  78  61 233 286
 ~~~
 {:.output}
 

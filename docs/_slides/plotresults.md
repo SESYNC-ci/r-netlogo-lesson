@@ -11,7 +11,7 @@ n_wolves_rep <- rep(n_wolves, each=5)
 df <- data.frame(as.factor(n_wolves_rep), unlist(sim_results))
 names(df) <- c("n_wolves", "time")
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 
 ~~~r
@@ -20,12 +20,12 @@ head(df)
 {:.input}
 ~~~
   n_wolves time
-1      100   81
-2      100  186
-3      100  182
-4      100  205
-5      100  193
-6      150  197
+1      100   62
+2      100  182
+3      100  195
+4      100  226
+5      100  179
+6      150  225
 ~~~
 {:.output}
 
@@ -39,7 +39,8 @@ library(ggplot2)
 ggplot(df, aes(x=n_wolves, y=time)) + 
   geom_boxplot()
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 ![plot of chunk unnamed-chunk-3]({{ site.baseurl }}/images/unnamed-chunk-3-1.png)
+{:.captioned}
 

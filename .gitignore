@@ -1,6 +1,11 @@
-.Rproj.user
+# R
 .Rhistory
-.RData
-.Ruserdata
+.Rproj.user
+docs/_slides_Rmd/cache
 
-/cache
+# Jupyter
+.ipynb_checkpoints/
+
+# Jekyll
+docs/.bundle
+docs/_site

@@ -5,7 +5,7 @@
 
 Instead of specifying a given number of iterations, you can use the results of a NetLogo reporter to only repeat executing commands while a reporter returns `TRUE` using `NLDoReportWhile()`. 
   
-```{r, title = "{{ site.handouts }}"}
+```{r, title = "{{ site.handouts[0] }}"}
 NLCommand("setup")
 sim_results <- NLDoReportWhile(condition = "any? wolves", 
                                command = "go",

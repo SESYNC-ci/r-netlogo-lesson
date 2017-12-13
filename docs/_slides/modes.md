@@ -8,9 +8,9 @@ Create an instance of RNetLogo using `NLStart()`. Use the `gui =` argument to co
 
 
 ~~~r
-NLStart(nl_path, gui = TRUE)
+NLStart(nl_path, gui = FALSE, nl.jarname = basename(nl_jar))
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 
 | Mode | Control in R | Control in NetLogo | Multiple NetLogo sessions |

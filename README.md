@@ -10,4 +10,4 @@
 -------------------------------------->
 
 [lesson]: https://sesync-ci.github.io/rnetlogo-lesson
-[slideshow]: https://sesync-ci.github.io/rnetlogo-lesson/instructor
+[slideshow]: https://sesync-ci.github.io/rnetlogo-lesson/slides

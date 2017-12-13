@@ -12,8 +12,34 @@ On Windows, the following path is standard.
 ~~~r
 library(RNetLogo)
 
-nl_path <- "C:/Program Files/NetLogo 5.3.1/app"
+nl_jar <- # path to NetLogo JAR files
+nl_path <- dirname(nl_jar)
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 
+~~~
+Loading required package: rJava
+~~~
+{:.input}
+~~~
+Loading required package: igraph
+~~~
+{:.input}
+~~~
+
+Attaching package: 'igraph'
+~~~
+{:.input}
+~~~
+The following objects are masked from 'package:stats':
+
+    decompose, spectrum
+~~~
+{:.input}
+~~~
+The following object is masked from 'package:base':
+
+    union
+~~~
+{:.output}

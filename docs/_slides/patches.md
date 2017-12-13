@@ -12,7 +12,7 @@ Find the color `("pcolor")` of the central patch (0, 0) using:
 center_pcolor <- NLGetPatches(patch.var = c("pxcor", "pycor", "pcolor"),
              patchset = "patches with [pxcor = 0 and pycor = 0]")
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 
 ~~~r
@@ -36,6 +36,6 @@ By using the code 35 for the color brown, we can kill all the grass using:
 NLSetPatches(patch.var = "pcolor", 
              in.matrix = matrix(35, nrow = 51, ncol = 51))
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 Use `NLSetPatchSet()` to set variable values for one or more patches instead of the whole landscape. 

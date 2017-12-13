@@ -15,7 +15,7 @@ NLCommand("setup")
 wolf_xy <- NLGetAgentSet(agent.var = c("pxcor", "pycor"), 
               agentset = "wolves")
 ~~~
-{:.text-document title="{{ site.handouts }}"}
+{:.text-document title="{{ site.handouts[0] }}"}
 
 
 ~~~r
@@ -24,12 +24,12 @@ head(wolf_xy)
 {:.input}
 ~~~
   pxcor pycor
-1     2   -17
-2    25     4
-3   -11    18
-4    -7   -21
-5   -20    17
-6    24     0
+1    12   -13
+2    13   -24
+3    25     6
+4   -23    12
+5     2   -17
+6     9   -11
 ~~~
 {:.output}
 
