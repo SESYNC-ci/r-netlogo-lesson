@@ -1,4 +1,4 @@
-[![lifecycle](https://img.shields.io/badge/lifecycle-deprecated-blue.svg)](https://github.com/orgs/SESYNC-ci/projects/2)
+[![lifecycle](https://img.shields.io/badge/lifecycle-archived-lightgrey.svg)](https://github.com/orgs/SESYNC-ci/projects/2)
 
 ## RNetLogo
 
@@ -6,7 +6,7 @@ Control agent-based model simulations from R.
 
 ## Instructor Notes
 
-This lesson is deprecated. Active lessons covering similar material include:
+This lesson is archived. Active lessons covering similar material include:
 
 * [Netlogo programming](https://github.com/sesync-ci/netlogo-programming-lesson)
 * [Spatial Netlogo](https://github.com/sesync-ci/gis-abm-lesson)
